@@ -1,0 +1,21 @@
+PODS:
+  - MagicalRecord/Shorthand (2.2)
+  - MGSwipeTableCell (1.5.5)
+  - Realm (0.98.8):
+    - Realm/Headers (= 0.98.8)
+  - Realm/Headers (0.98.8)
+  - RealmSwift (0.98.8):
+    - Realm (= 0.98.8)
+
+DEPENDENCIES:
+  - MagicalRecord/Shorthand
+  - MGSwipeTableCell
+  - RealmSwift
+
+SPEC CHECKSUMS:
+  MagicalRecord: 2dc87179ae7c1f2a274442624ec65a07d4357a6f
+  MGSwipeTableCell: bafeb5f351124544c9364ecbdf24c7b06a37d340
+  Realm: 0e293bb62999730599efc3048896bbd4f2e43bcd
+  RealmSwift: 064262d38113f23ff3508fb20a0a922e696bec01
+
+COCOAPODS: 0.39.0

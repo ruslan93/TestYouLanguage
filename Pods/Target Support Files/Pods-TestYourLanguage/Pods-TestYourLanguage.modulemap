@@ -1,0 +1,6 @@
+framework module Pods_TestYourLanguage {
+  umbrella header "Pods-TestYourLanguage-umbrella.h"
+
+  export *
+  module * { export * }
+}
