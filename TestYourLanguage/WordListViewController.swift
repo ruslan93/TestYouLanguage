@@ -8,8 +8,9 @@
 
 import UIKit
 import RealmSwift
+import MGSwipeTableCell
 
-class WordListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class WordListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MGSwipeTableCellDelegate {
     var words: List<Word>?
     @IBOutlet weak var tableView: UITableView!
     var realm: Realm? = nil
@@ -46,6 +47,14 @@ class WordListViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.wordLabel.text = word.word
         cell.translatedWordLabel.text = word.translatedWord
         cell.wordNumber.text = "\(indexPath.row + 1)"
+        cell.rightButtons = [MGSwipeButton(title: "Удалить", backgroundColor: UIColor.redColor())
+            ,MGSwipeButton(title: "Изменить",backgroundColor: UIColor.lightGrayColor())]
+        cell.rightSwipeSettings.transition = MGSwipeTransition.ClipCenter
+        let expansionSettings = MGSwipeExpansionSettings()
+        expansionSettings.buttonIndex = 0
+        expansionSettings.fillOnTrigger = false;
+        cell.rightExpansion = expansionSettings
+        cell.delegate = self
         return cell
     }
     
@@ -56,14 +65,25 @@ class WordListViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 50.0
     }
-
+    
+    func swipeTableCell(cell: MGSwipeTableCell!, tappedButtonAtIndex index: Int, direction: MGSwipeDirection, fromExpansion: Bool) -> Bool{
+        if index == 0{
+            self.deleteWord(self.tableView.indexPathForCell(cell)!)
+        } else {
+            self.editWord(self.tableView.indexPathForCell(cell)!)
+        }
+        return true
+    }
+    
+    //MARK: - Actions
+    
     @IBAction func addLanguageBarButtonPressed(sender: AnyObject) {
-        let alert = UIAlertController.init(title: "Добавить новое слово", message: "Введите название языка, который вы хотите добавить в свой список", preferredStyle: .Alert)
+        let alert = UIAlertController.init(title: "Добавить новое слово", message: "Введите слово и его перевод", preferredStyle: .Alert)
         alert.addTextFieldWithConfigurationHandler { (wordTextField) in
-            wordTextField.placeholder = "Название языка"
+            wordTextField.placeholder = "Слово"
         }
         alert.addTextFieldWithConfigurationHandler { (translatedTextField) in
-            translatedTextField.placeholder = "Название языка"
+            translatedTextField.placeholder = "Перевод"
         }
         let addAction = UIAlertAction.init(title: "Добавить", style: .Default) { (action:UIAlertAction!) in
             let wordTextField = alert.textFields![0]
@@ -82,38 +102,61 @@ class WordListViewController: UIViewController, UITableViewDataSource, UITableVi
         self.presentViewController(alert, animated: true, completion: nil)
     }
 
+    //MARK: - Actions
+
     func addWordToLanguage(word: String, translatedWord: String){
         let newWord = Word()
         newWord.word = word
         newWord.translatedWord = translatedWord
-        newWord.ID = 0
-//        if self.user == nil{
-//            print("nil")
-//        } else {
-//            print(self.user!)
-//        }
-//        if self.user!.languages.isEmpty {
-//            language.ID = 0
-//        } else {
-//            let maxID = self.realm?.objects(Language).filter("owner == %@", self.user!).max("ID") as Int!
-//            language.ID = maxID + 1
-//        }
-//        language.owner = self.user!
+        if self.words!.isEmpty {
+            newWord.ID = 0
+        } else {
+            newWord.ID = (self.words!.max("ID") as Int!)+1
+        }
         try! self.realm!.write({
             self.words?.append(newWord)
-//            self.user!.languages.append(language)
+            self.tableView.insertRowsAtIndexPaths([NSIndexPath.init(forRow: self.words!.count - 1, inSection: 0)], withRowAnimation: .Right)
         })
-        self.tableView.reloadData()
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func deleteWord(indexPath: NSIndexPath){
+        let selectedWord = self.words![indexPath.row]
+        try! self.realm!.write({
+            realm?.delete(selectedWord)
+            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Left)
+        })
     }
-    */
+    
+    func editWord(indexPath: NSIndexPath){
+        let selectedWord = self.words![indexPath.row]
+        let alert = UIAlertController.init(title: "Редактировать слово", message:nil, preferredStyle: .Alert)
+        alert.addTextFieldWithConfigurationHandler { (wordTextField) in
+            wordTextField.placeholder = "Слово"
+            wordTextField.text = selectedWord.word
+        }
+        alert.addTextFieldWithConfigurationHandler { (translatedTextField) in
+            translatedTextField.placeholder = "Перевод"
+            translatedTextField.text = selectedWord.translatedWord
+        }
 
+        let editAction = UIAlertAction.init(title: "Сохранить", style: .Default) { (action:UIAlertAction!) in
+            let wordTextField = alert.textFields![0]
+            let translatedTextField = alert.textFields![1]
+            guard let name = wordTextField.text where !name.isEmpty else{
+                return
+            }
+            guard let name2 = translatedTextField.text where !name2.isEmpty else{
+                return
+            }
+            try! self.realm!.write({
+                selectedWord.word = wordTextField.text!
+                selectedWord.translatedWord = translatedTextField.text!
+                self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Right)
+            })
+        }
+        let cancelAction = UIAlertAction.init(title: "Отменить", style: .Cancel, handler: nil)
+        alert.addAction(cancelAction)
+        alert.addAction(editAction)
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
 }

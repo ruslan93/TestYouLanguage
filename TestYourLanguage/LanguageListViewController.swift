@@ -28,21 +28,31 @@ class LanguageListViewController: UIViewController, UITableViewDataSource, UITab
             }
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.realm = try! Realm()
+        if (NSUserDefaults.standardUserDefaults().valueForKey("login") != nil) {
+            self.update()
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        if (NSUserDefaults.standardUserDefaults().valueForKey("login") != nil) {
-            self.update()
-        } else {
+        if (NSUserDefaults.standardUserDefaults().valueForKey("login") == nil) {
             self.performSegueWithIdentifier("loginSegue", sender: self)
         }
-//        self.performSegueWithIdentifier("loginSegue", sender: self)
-
+        //        self.performSegueWithIdentifier("loginSegue", sender: self)
     }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        let selectedIndexPath = self.tableView.indexPathForSelectedRow
+        if selectedIndexPath != nil {
+            self.tableView.deselectRowAtIndexPath(selectedIndexPath!, animated: false)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -66,8 +76,8 @@ class LanguageListViewController: UIViewController, UITableViewDataSource, UITab
         cell.languageNameLabel.text = language.name
         cell.languageImageView.image = UIImage.init(named: "\(indexPath.row + 1)")
         cell.wordsCountLabel.text = "Количество слов"
-        cell.rightButtons = [MGSwipeButton(title: "Delete", backgroundColor: UIColor.redColor())
-            ,MGSwipeButton(title: "More",backgroundColor: UIColor.lightGrayColor())]
+        cell.rightButtons = [MGSwipeButton(title: "Удалить", backgroundColor: UIColor.redColor())
+            ,MGSwipeButton(title: "Изменить",backgroundColor: UIColor.lightGrayColor())]
         cell.rightSwipeSettings.transition = MGSwipeTransition.ClipCenter
         let expansionSettings = MGSwipeExpansionSettings()
         expansionSettings.buttonIndex = 0
@@ -77,16 +87,11 @@ class LanguageListViewController: UIViewController, UITableViewDataSource, UITab
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        self.performSegueWithIdentifier("wordsSegue", sender: self)
-    }
-    
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 100.0
     }
     
      func swipeTableCell(cell: MGSwipeTableCell!, tappedButtonAtIndex index: Int, direction: MGSwipeDirection, fromExpansion: Bool) -> Bool{
-        print(index)
         if index == 0{
             self.deleteLanguage(self.tableView.indexPathForCell(cell)!)
         } else {
@@ -143,11 +148,6 @@ class LanguageListViewController: UIViewController, UITableViewDataSource, UITab
     func addLanguageToUser(name: String){
         let language = Language()
         language.name = name
-        if self.user == nil{
-            print("nil")
-        } else {
-            print(self.user!)
-        }
         if self.user!.languages.isEmpty {
             language.ID = 0
         } else {
@@ -190,5 +190,5 @@ class LanguageListViewController: UIViewController, UITableViewDataSource, UITab
         alert.addAction(cancelAction)
         alert.addAction(editAction)
         self.presentViewController(alert, animated: true, completion: nil)
-    }    
+    }
 }

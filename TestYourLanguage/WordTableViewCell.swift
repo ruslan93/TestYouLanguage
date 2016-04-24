@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MGSwipeTableCell
 
-class WordTableViewCell: UITableViewCell {
+class WordTableViewCell: MGSwipeTableCell {
 
     @IBOutlet weak var wordNumber: UILabel!
     @IBOutlet weak var wordLabel: UILabel!
