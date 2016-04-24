@@ -42,7 +42,6 @@ class LanguageListViewController: UIViewController, UITableViewDataSource, UITab
         if (NSUserDefaults.standardUserDefaults().valueForKey("login") == nil) {
             self.performSegueWithIdentifier("loginSegue", sender: self)
         }
-        //        self.performSegueWithIdentifier("loginSegue", sender: self)
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -55,7 +54,6 @@ class LanguageListViewController: UIViewController, UITableViewDataSource, UITab
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - UITableViewDelegate
@@ -75,7 +73,18 @@ class LanguageListViewController: UIViewController, UITableViewDataSource, UITab
         let language = self.user!.languages[indexPath.row]
         cell.languageNameLabel.text = language.name
         cell.languageImageView.image = UIImage.init(named: "\(indexPath.row + 1)")
-        cell.wordsCountLabel.text = "Количество слов"
+        cell.wordsCountLabel.text = "\(language.words.count)"
+        if language.results.isEmpty {
+            cell.lastResultLabel.text = "-"
+            cell.lastResultLabel.textColor = UIColor.blackColor()
+        } else {
+            if language.results.last!.percent >= 50 {
+                cell.lastResultLabel.textColor = UIColor.greenColor()
+            } else {
+                cell.lastResultLabel.textColor = UIColor.redColor()
+            }
+            cell.lastResultLabel.text = "\(language.results.last!.percent)%"
+        }
         cell.rightButtons = [MGSwipeButton(title: "Удалить", backgroundColor: UIColor.redColor())
             ,MGSwipeButton(title: "Изменить",backgroundColor: UIColor.lightGrayColor())]
         cell.rightSwipeSettings.transition = MGSwipeTransition.ClipCenter

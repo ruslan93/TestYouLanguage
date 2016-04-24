@@ -4,7 +4,7 @@
 use_frameworks!
 
 target 'TestYourLanguage' do
-pod 'MagicalRecord/Shorthand'
+pod 'LTMorphingLabel'
 pod 'RealmSwift'
 pod 'MGSwipeTableCell'
 end

@@ -4,12 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>MGSwipeTableCell.xcscheme</key>
+		<key>LTMorphingLabel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>MagicalRecord.xcscheme</key>
+		<key>MGSwipeTableCell.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -32,27 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0783BA34C05AE89670C770687E12BDA4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0DCBD6C869DCC15AF62D43471CB4592C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4E1263BFF45F6446CF3DE29AE234C893</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6AAF4792CFE64BBE948917207C486A76</key>
+		<key>656AA915F584B1C67B1ECE82C763086F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CEB4E370F760D6127BBAE5EF7AB3445D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E654E51A2C3E5B5CF28CEB86D71FE7EB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FA85D1D7FE4971AFD83080F79FF6F307</key>
+		<key>E2A0FFA2293109056502333BABFC97E0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

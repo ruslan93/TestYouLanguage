@@ -84,14 +84,14 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-TestYourLanguage/LTMorphingLabel.framework"
   install_framework "Pods-TestYourLanguage/MGSwipeTableCell.framework"
-  install_framework "Pods-TestYourLanguage/MagicalRecord.framework"
   install_framework "Pods-TestYourLanguage/Realm.framework"
   install_framework "Pods-TestYourLanguage/RealmSwift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-TestYourLanguage/LTMorphingLabel.framework"
   install_framework "Pods-TestYourLanguage/MGSwipeTableCell.framework"
-  install_framework "Pods-TestYourLanguage/MagicalRecord.framework"
   install_framework "Pods-TestYourLanguage/Realm.framework"
   install_framework "Pods-TestYourLanguage/RealmSwift.framework"
 fi

@@ -47,16 +47,16 @@ class ResultListViewController: UIViewController, UITableViewDataSource, UITable
         if self.user == nil{
             return 0
         }
-        return self.user!.languages.count
+        return (self.realm?.objects(Language).filter("results.@count > 0 && owner == %@", self.user!).count)!
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.user!.languages[section].results.count
+        return (self.realm?.objects(Language).filter("results.@count > 0 && owner == %@", self.user!))![section].results.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ResultTableViewCell") as! ResultTableViewCell!
-        let result = self.user!.languages[indexPath.section].results[indexPath.row]
+        let result = (self.realm?.objects(Language).filter("results.@count > 0 && owner == %@", self.user!))![indexPath.section].results[indexPath.row]
         cell.dateLabel.text = "\(result.date)"
         cell.resultLabel.text = "\(result.percent)"
         cell.rightAnswerLabel.text = "\(result.rightQuestion)/\(result.totalQuestion)"

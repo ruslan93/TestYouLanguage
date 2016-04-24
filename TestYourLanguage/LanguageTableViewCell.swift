@@ -14,6 +14,7 @@ class LanguageTableViewCell: MGSwipeTableCell {
     @IBOutlet weak var languageImageView: UIImageView!
     @IBOutlet weak var languageNameLabel: UILabel!
     @IBOutlet weak var wordsCountLabel: UILabel!
+    @IBOutlet weak var lastResultLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

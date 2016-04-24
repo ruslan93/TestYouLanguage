@@ -24,7 +24,6 @@ class WordListViewController: UIViewController, UITableViewDataSource, UITableVi
         result.date = NSDate.init()
         let user = self.realm?.objects(User)[0]
         let results = self.realm?.objects(Result)
-        print(results)
         try! self.realm!.write({
 //            user!.languages[1].results.append(result)
         })
