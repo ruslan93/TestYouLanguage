@@ -8,11 +8,13 @@
 
 import UIKit
 import RealmSwift
+import MGSwipeTableCell
+
 protocol UpdateLanguagies : class{
     func update()
 }
 
-class LanguageListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,  UpdateLanguagies {
+class LanguageListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MGSwipeTableCellDelegate,  UpdateLanguagies {
     @IBOutlet weak var tableView: UITableView!
     var realm: Realm? = nil
     var laguagies: List<Language>? = nil
@@ -64,6 +66,14 @@ class LanguageListViewController: UIViewController, UITableViewDataSource, UITab
         cell.languageNameLabel.text = language.name
         cell.languageImageView.image = UIImage.init(named: "\(indexPath.row + 1)")
         cell.wordsCountLabel.text = "Количество слов"
+        cell.rightButtons = [MGSwipeButton(title: "Delete", backgroundColor: UIColor.redColor())
+            ,MGSwipeButton(title: "More",backgroundColor: UIColor.lightGrayColor())]
+        cell.rightSwipeSettings.transition = MGSwipeTransition.ClipCenter
+        let expansionSettings = MGSwipeExpansionSettings()
+        expansionSettings.buttonIndex = 0
+        expansionSettings.fillOnTrigger = false;
+        cell.rightExpansion = expansionSettings
+        cell.delegate = self
         return cell
     }
     
@@ -73,6 +83,16 @@ class LanguageListViewController: UIViewController, UITableViewDataSource, UITab
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 100.0
+    }
+    
+     func swipeTableCell(cell: MGSwipeTableCell!, tappedButtonAtIndex index: Int, direction: MGSwipeDirection, fromExpansion: Bool) -> Bool{
+        print(index)
+        if index == 0{
+            self.deleteLanguage(self.tableView.indexPathForCell(cell)!)
+        } else {
+            self.editLanguage(self.tableView.indexPathForCell(cell)!)
+        }
+        return true
     }
     
     // MARK: - UpdadeLanguagies
@@ -100,6 +120,8 @@ class LanguageListViewController: UIViewController, UITableViewDataSource, UITab
         }
     }
     
+    // MARK: - Methods
+
     @IBAction func addLanguageBarButtonPressed(sender: AnyObject) {
         let alert = UIAlertController.init(title: "Добавить язык", message: "Введите название языка, который вы хотите добавить в свой список", preferredStyle: .Alert)
         alert.addTextFieldWithConfigurationHandler { (nameTextField) in
@@ -135,7 +157,38 @@ class LanguageListViewController: UIViewController, UITableViewDataSource, UITab
         language.owner = self.user!
         try! self.realm!.write({
             self.user!.languages.append(language)
+            self.tableView.insertRowsAtIndexPaths([NSIndexPath.init(forRow: self.user!.languages.count - 1, inSection: 0)], withRowAnimation: .Right)
         })
-        self.tableView.reloadData()
     }
+    
+    func deleteLanguage(indexPath: NSIndexPath){
+        let selectedLanguage = self.user!.languages[indexPath.row]
+        try! self.realm!.write({
+            realm?.delete(selectedLanguage)
+            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Left)
+        })
+    }
+    
+    func editLanguage(indexPath: NSIndexPath){
+        let selectedLanguage = self.user!.languages[indexPath.row]
+        let alert = UIAlertController.init(title: "Редактировать язык", message:nil, preferredStyle: .Alert)
+        alert.addTextFieldWithConfigurationHandler { (nameTextField) in
+            nameTextField.placeholder = "Название языка"
+            nameTextField.text = selectedLanguage.name
+        }
+        let editAction = UIAlertAction.init(title: "Сменить", style: .Default) { (action:UIAlertAction!) in
+            let nameTextField = alert.textFields![0]
+            guard let name = nameTextField.text where !name.isEmpty else{
+                return
+            }
+            try! self.realm!.write({
+                selectedLanguage.name = nameTextField.text!
+                self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Right)
+            })
+        }
+        let cancelAction = UIAlertAction.init(title: "Отменить", style: .Cancel, handler: nil)
+        alert.addAction(cancelAction)
+        alert.addAction(editAction)
+        self.presentViewController(alert, animated: true, completion: nil)
+    }    
 }

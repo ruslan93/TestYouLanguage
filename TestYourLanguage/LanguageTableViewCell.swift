@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import MGSwipeTableCell
 
-class LanguageTableViewCell: UITableViewCell {
+class LanguageTableViewCell: MGSwipeTableCell {
 
     @IBOutlet weak var languageImageView: UIImageView!
     @IBOutlet weak var languageNameLabel: UILabel!
     @IBOutlet weak var wordsCountLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
