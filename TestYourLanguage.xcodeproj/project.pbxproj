@@ -13,6 +13,9 @@
 		220E17561CCAA04C006285F9 /* ResultHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220E17551CCAA04C006285F9 /* ResultHeaderTableViewCell.swift */; };
 		222F34191CC7AF0B00D510B8 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222F34181CC7AF0B00D510B8 /* RootViewController.swift */; };
 		223175C81CCE44E600E79795 /* UIImage+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223175C71CCE44E600E79795 /* UIImage+Crop.swift */; };
+		224A33C81CCE95AE008444E9 /* MBCircularProgressBarLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 224A33C51CCE95AE008444E9 /* MBCircularProgressBarLayer.m */; };
+		224A33C91CCE95AE008444E9 /* MBCircularProgressBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 224A33C71CCE95AE008444E9 /* MBCircularProgressBarView.m */; };
+		224A33CD1CCEA5B8008444E9 /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A33CC1CCEA5B8008444E9 /* TestTableViewCell.swift */; };
 		225D2F101CC7AD5C00AE2337 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225D2F0F1CC7AD5C00AE2337 /* AppDelegate.swift */; };
 		225D2F151CC7AD5C00AE2337 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 225D2F131CC7AD5C00AE2337 /* Main.storyboard */; };
 		225D2F171CC7AD5C00AE2337 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 225D2F161CC7AD5C00AE2337 /* Assets.xcassets */; };
@@ -47,6 +50,12 @@
 		220E17551CCAA04C006285F9 /* ResultHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		222F34181CC7AF0B00D510B8 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		223175C71CCE44E600E79795 /* UIImage+Crop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Crop.swift"; sourceTree = "<group>"; };
+		223175CA1CCE885700E79795 /* TestYourLanguage-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TestYourLanguage-Bridging-Header.h"; sourceTree = "<group>"; };
+		224A33C41CCE95AE008444E9 /* MBCircularProgressBarLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCircularProgressBarLayer.h; sourceTree = "<group>"; };
+		224A33C51CCE95AE008444E9 /* MBCircularProgressBarLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBCircularProgressBarLayer.m; sourceTree = "<group>"; };
+		224A33C61CCE95AE008444E9 /* MBCircularProgressBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCircularProgressBarView.h; sourceTree = "<group>"; };
+		224A33C71CCE95AE008444E9 /* MBCircularProgressBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBCircularProgressBarView.m; sourceTree = "<group>"; };
+		224A33CC1CCEA5B8008444E9 /* TestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
 		225D2F0C1CC7AD5C00AE2337 /* TestYourLanguage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestYourLanguage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		225D2F0F1CC7AD5C00AE2337 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		225D2F141CC7AD5C00AE2337 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -113,6 +122,18 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		223175C91CCE882A00E79795 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				224A33C41CCE95AE008444E9 /* MBCircularProgressBarLayer.h */,
+				224A33C51CCE95AE008444E9 /* MBCircularProgressBarLayer.m */,
+				224A33C61CCE95AE008444E9 /* MBCircularProgressBarView.h */,
+				224A33C71CCE95AE008444E9 /* MBCircularProgressBarView.m */,
+				223175CA1CCE885700E79795 /* TestYourLanguage-Bridging-Header.h */,
+			);
+			name = Libs;
+			sourceTree = "<group>";
+		};
 		225D2F031CC7AD5C00AE2337 = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +157,7 @@
 		225D2F0E1CC7AD5C00AE2337 /* TestYourLanguage */ = {
 			isa = PBXGroup;
 			children = (
+				223175C91CCE882A00E79795 /* Libs */,
 				225E44791CC9370100227EF5 /* Cells */,
 				225E44721CC7C10B00227EF5 /* Models */,
 				222F34171CC7AEDF00D510B8 /* Controllers */,
@@ -173,6 +195,7 @@
 				225E447C1CC94AB300227EF5 /* WordTableViewCell.swift */,
 				220E17531CCA9703006285F9 /* ResultTableViewCell.swift */,
 				220E17551CCAA04C006285F9 /* ResultHeaderTableViewCell.swift */,
+				224A33CC1CCEA5B8008444E9 /* TestTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -341,12 +364,14 @@
 			files = (
 				2273BFCA1CCE3096002D0BD1 /* ProfilePhotoViewController.swift in Sources */,
 				2270EDAB1CCD20DE009A3776 /* TestViewController.swift in Sources */,
+				224A33C81CCE95AE008444E9 /* MBCircularProgressBarLayer.m in Sources */,
 				225E44781CC7D6B000227EF5 /* LoginViewController.swift in Sources */,
 				220E17501CCA88BD006285F9 /* SettingsViewController.swift in Sources */,
 				220E17521CCA9512006285F9 /* ResultListViewController.swift in Sources */,
 				225E447F1CC94B0D00227EF5 /* WordListViewController.swift in Sources */,
 				225D2F101CC7AD5C00AE2337 /* AppDelegate.swift in Sources */,
 				225E447D1CC94AB300227EF5 /* WordTableViewCell.swift in Sources */,
+				224A33CD1CCEA5B8008444E9 /* TestTableViewCell.swift in Sources */,
 				225E44741CC7C14600227EF5 /* User.swift in Sources */,
 				220E17541CCA9703006285F9 /* ResultTableViewCell.swift in Sources */,
 				2270EDA91CCD1A97009A3776 /* TestSettingViewController.swift in Sources */,
@@ -355,6 +380,7 @@
 				223175C81CCE44E600E79795 /* UIImage+Crop.swift in Sources */,
 				225E44761CC7D53E00227EF5 /* LanguageListViewController.swift in Sources */,
 				222F34191CC7AF0B00D510B8 /* RootViewController.swift in Sources */,
+				224A33C91CCE95AE008444E9 /* MBCircularProgressBarView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +510,7 @@
 			baseConfigurationReference = C1A9471736842CC7F1286622 /* Pods-TestYourLanguage.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TestYourLanguage/Info.plist;
@@ -492,8 +519,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ru.palapa.TestYourLanguage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "TestYourLanguage/TestYourLanguage-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -502,6 +530,7 @@
 			baseConfigurationReference = 6AB44E7321D7201D4C631E43 /* Pods-TestYourLanguage.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TestYourLanguage/Info.plist;
@@ -510,7 +539,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ru.palapa.TestYourLanguage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "TestYourLanguage/TestYourLanguage-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 			};
 			name = Release;

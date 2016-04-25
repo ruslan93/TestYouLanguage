@@ -18,7 +18,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var enterButton: UIButton!
-    weak var delegate:UpdateLanguagies?
     let realm = try! Realm()
 
     override func viewDidLoad() {
@@ -111,7 +110,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         NSUserDefaults.standardUserDefaults().setValue(password, forKey: "password")
         NSUserDefaults.standardUserDefaults().setValue(ID, forKey: "ID")
         NSUserDefaults.standardUserDefaults().synchronize()
-        self.delegate!.update()
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

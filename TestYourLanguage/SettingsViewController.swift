@@ -49,6 +49,8 @@ class SettingsViewController: UIViewController {
                 wordNumber += language.words.count
             }
             self.wordsNumberLabel.text = "\(wordNumber)"
+//            self.lastResultLabel.text = "\(self.realm!.objects(Result).average("percent"))"
+//            self.lastResultLabel.text = "\(self.realm!.objects(Result).last?.percent)"
             self.userNameLabel.text = self.user!.login
             if !(self.user?.profileImage.isEmpty)! {
                 let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
@@ -61,14 +63,14 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    /*
+    @IBAction func changeButtonPressed(sender: AnyObject) {
+        
+    }
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "logOutSegue" {
+            NSUserDefaults.standardUserDefaults().removeObjectForKey("login")
+        }
     }
-    */
-
 }

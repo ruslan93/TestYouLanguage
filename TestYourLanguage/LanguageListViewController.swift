@@ -10,11 +10,8 @@ import UIKit
 import RealmSwift
 import MGSwipeTableCell
 import IBAnimatable
-protocol UpdateLanguagies : class{
-    func update()
-}
 
-class LanguageListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MGSwipeTableCellDelegate,  UpdateLanguagies {
+class LanguageListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MGSwipeTableCellDelegate {
     @IBOutlet weak var tableView: UITableView!
     var realm: Realm? = nil
     var laguagies: List<Language>? = nil
@@ -32,15 +29,14 @@ class LanguageListViewController: UIViewController, UITableViewDataSource, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         self.realm = try! Realm()
-        if (NSUserDefaults.standardUserDefaults().valueForKey("login") != nil) {
-            self.update()
-        }
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         if (NSUserDefaults.standardUserDefaults().valueForKey("login") == nil) {
             self.performSegueWithIdentifier("loginSegue", sender: self)
+        } else {
+            self.update()
         }
     }
     
@@ -121,10 +117,6 @@ class LanguageListViewController: UIViewController, UITableViewDataSource, UITab
     
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier! == "loginSegue"{
-            let loginVC = segue.destinationViewController as! LoginViewController
-            loginVC.delegate = self
-        }
         if segue.identifier! == "wordsSegue"{
             let selectedIndexPath = self.tableView.indexPathForSelectedRow
             if selectedIndexPath != nil {

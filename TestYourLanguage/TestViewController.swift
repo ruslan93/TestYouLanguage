@@ -13,38 +13,30 @@ import IBAnimatable
 
 class TestViewController: UIViewController {
 
-    var realm: Realm? = nil
+    var realm: Realm = try! Realm()
     var random = 0
+    var language: Language!
     var currentQuestion = 1
     var rightAnswer = 0
-    var laguagies: List<Language>? = nil
-    var user: User? {
-        get {
-            let users = self.realm!.objects(User).filter("ID == %@", NSUserDefaults.standardUserDefaults().valueForKey("ID")!)
-            if users.isEmpty {
-                return nil
-            } else {
-                return users[0]
-            }
-        }
-    }
     var wordsList: [Word] = []
+    @IBOutlet weak var progressView: MBCircularProgressBarView!
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var wordLabel: LTMorphingLabel!
     @IBOutlet var buttonsArray: [AnimatableButton]!
-    
+    @IBOutlet var reusultView: AnimatableView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.reusultView.hidden = true
         self.wordLabel.morphingEffect = .Sparkle
-        self.realm = try! Realm()
         self.wordLabel.text = ""
         self.fillWordsList()
     }
     
     func fillWordsList(){
         for _ in self.buttonsArray{
-            let random = Int(arc4random_uniform(uint(self.user!.languages[0].words.count as Int!)))
-            let word = self.user!.languages[0].words[random]
+            let random = Int(arc4random_uniform(uint(self.language.words.count as Int!)))
+            let word = self.language.words[random]
             if self.wordsList.isEmpty {
                 self.wordsList.insert(word, atIndex: 0)
             } else {
@@ -85,7 +77,6 @@ class TestViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func closeTestButtonPressed(sender: AnyObject) {
@@ -95,23 +86,32 @@ class TestViewController: UIViewController {
     @IBAction func buttonPressed(sender: UIButton) {
         if sender.tag == self.random {
             self.rightAnswer = self.rightAnswer + 1
-            print("yes")
         } else {
-            print("no")
+            try! self.realm.write({
+                self.wordsList[self.random].falseAnswerCount = self.wordsList[self.random].falseAnswerCount + 1
+            })
         }
-        self.currentQuestion = self.currentQuestion + 1
-        self.resultLabel.text = "\(self.currentQuestion)/20"
-        self.wordsList = []
-        self.fillWordsList()
+        if self.currentQuestion < 20 {
+            self.currentQuestion = self.currentQuestion + 1
+            self.resultLabel.text = "\(self.currentQuestion)/20"
+            self.wordsList = []
+            self.fillWordsList()
+        } else {
+            self.showResult()
+        }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func showResult(){
+        try! self.realm.write({
+            let result = Result()
+            result.date = NSDate.init()
+            result.rightQuestion = self.rightAnswer
+            result.totalQuestion = self.currentQuestion
+            result.percent = (self.rightAnswer * 100) / self.currentQuestion
+            self.language.results.append(result)
+        })
+        self.reusultView.hidden = false
+        self.progressView.totalBall = 20
+        self.progressView.setValue(CGFloat(self.rightAnswer)*100/CGFloat(self.currentQuestion), animateWithDuration: 3)
     }
-    */
-
 }
