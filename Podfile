@@ -7,6 +7,7 @@ target 'TestYourLanguage' do
 pod 'LTMorphingLabel'
 pod 'RealmSwift'
 pod 'MGSwipeTableCell'
+pod 'IBAnimatable'
 end
 
 target 'TestYourLanguageTests' do

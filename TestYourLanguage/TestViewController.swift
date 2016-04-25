@@ -9,6 +9,7 @@
 import UIKit
 import LTMorphingLabel
 import RealmSwift
+import IBAnimatable
 
 class TestViewController: UIViewController {
 
@@ -30,7 +31,7 @@ class TestViewController: UIViewController {
     var wordsList: [Word] = []
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var wordLabel: LTMorphingLabel!
-    @IBOutlet var buttonsArray: [UIButton]!
+    @IBOutlet var buttonsArray: [AnimatableButton]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,6 @@ class TestViewController: UIViewController {
         self.realm = try! Realm()
         self.wordLabel.text = ""
         self.fillWordsList()
-        // Do any additional setup after loading the view.
     }
     
     func fillWordsList(){
@@ -69,11 +69,17 @@ class TestViewController: UIViewController {
     func fillButtonsInfo(){
         var index = 0
         for button in self.buttonsArray{
+            button.fadeOutDown()
+        }
+        for button in self.buttonsArray{
             button.setTitle(self.wordsList[index].translatedWord, forState: .Normal)
             index = index + 1
         }
         let random = Int(arc4random_uniform(3))
         self.random = random
+        for button in self.buttonsArray{
+            button.fadeInUp()
+        }
         self.wordLabel.text = self.wordsList[random].word
     }
     
@@ -87,18 +93,6 @@ class TestViewController: UIViewController {
     }
 
     @IBAction func buttonPressed(sender: UIButton) {
-//        if sender.tag == 0 {
-//            self.wordLabel.text = "Appel"
-//        }
-//        if sender.tag == 1 {
-//            self.wordLabel.text = "HTC"
-//        }
-//        if sender.tag == 2 {
-//            self.wordLabel.text = "Samsung"
-//        }
-//        if sender.tag == 3 {
-//            self.wordLabel.text = "Android"
-//        }
         if sender.tag == self.random {
             self.rightAnswer = self.rightAnswer + 1
             print("yes")

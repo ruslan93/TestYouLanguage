@@ -40,16 +40,6 @@ class SettingsViewController: UIViewController {
         super.viewWillAppear(animated)
         self.prepareView()
     }
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        for button in [self.exitButton, self.changePasswordButton] {
-            button.layer.borderWidth = 1
-            button.layer.borderColor = UIColor.blackColor().CGColor
-        }
-        self.userImageView.layer.borderWidth = 1
-        self.userImageView.layer.borderColor = UIColor.whiteColor().CGColor
-    }
-
     
     func prepareView(){
         if self.user != nil {
@@ -60,8 +50,17 @@ class SettingsViewController: UIViewController {
             }
             self.wordsNumberLabel.text = "\(wordNumber)"
             self.userNameLabel.text = self.user!.login
+            if !(self.user?.profileImage.isEmpty)! {
+                let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+                let profileImage = UIImage.init(contentsOfFile: "\(documentsPath)/\(self.user!.profileImage)")
+                self.userImageView.image = profileImage
+                print(self.user!.profileImage)
+            } else {
+                self.userImageView.image = UIImage.init(named: "profile")
+            }
         }
     }
+    
     /*
     // MARK: - Navigation
 

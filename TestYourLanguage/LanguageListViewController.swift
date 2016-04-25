@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 import MGSwipeTableCell
-
+import IBAnimatable
 protocol UpdateLanguagies : class{
     func update()
 }

@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>IBAnimatable.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>LTMorphingLabel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,12 +37,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0783BA34C05AE89670C770687E12BDA4</key>
+		<key>0DCBD6C869DCC15AF62D43471CB4592C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0DCBD6C869DCC15AF62D43471CB4592C</key>
+		<key>10B3A854BAD47BC3F3DABB7C8EC31E64</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>129EE92E1CD35C99D912D33CBC007D84</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -47,12 +57,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>656AA915F584B1C67B1ECE82C763086F</key>
+		<key>5FC4960CC1C7AC3C5E400791D37E1ED3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E2A0FFA2293109056502333BABFC97E0</key>
+		<key>F1CA809143B68B8FB576B40829641D70</key>
 		<dict>
 			<key>primary</key>
 			<true/>

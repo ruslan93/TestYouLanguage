@@ -14,6 +14,7 @@ class User: Object {
     let languages = List<Language>()
     dynamic var login = ""
     dynamic var password = ""
+    dynamic var profileImage = ""
 }
 
 class Language: Object {
