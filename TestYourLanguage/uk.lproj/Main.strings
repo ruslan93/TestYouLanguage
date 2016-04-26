@@ -1,0 +1,153 @@
+
+/* Class = "UIButton"; normalTitle = "Войти"; ObjectID = "0sM-lb-9LL"; */
+"0sM-lb-9LL.normalTitle" = "Ввійти";
+
+/* Class = "UILabel"; text = "Последний результат"; ObjectID = "0vr-DT-Kxd"; */
+"0vr-DT-Kxd.text" = "Останній результат";
+
+/* Class = "UILabel"; text = "Дата"; ObjectID = "17K-aR-r0l"; */
+"17K-aR-r0l.text" = "Дата";
+
+/* Class = "UITabBarItem"; title = "Результаты"; ObjectID = "2pD-0d-Fhd"; */
+"2pD-0d-Fhd.title" = "Результати";
+
+/* Class = "UILabel"; text = "Слово"; ObjectID = "46B-y0-CIK"; */
+"46B-y0-CIK.text" = "Слово";
+
+/* Class = "UITextField"; placeholder = "Имя"; ObjectID = "4fU-cR-7wb"; */
+"4fU-cR-7wb.placeholder" = "Логін";
+
+/* Class = "UITabBarItem"; title = "Настройки"; ObjectID = "5BT-Eg-FoI"; */
+"5BT-Eg-FoI.title" = "Налаштування";
+
+/* Class = "UIButton"; normalTitle = "Вариант 4"; ObjectID = "6gR-Fn-BTl"; */
+"6gR-Fn-BTl.normalTitle" = "Варіант 4";
+
+/* Class = "UILabel"; text = "English"; ObjectID = "8ZE-0D-C96"; */
+"8ZE-0D-C96.text" = "English";
+
+/* Class = "UIButton"; normalTitle = "Выйти"; ObjectID = "AKT-et-q92"; */
+"AKT-et-q92.normalTitle" = "Вийти";
+
+/* Class = "UINavigationItem"; title = "Сменить фото"; ObjectID = "Ahm-L9-5F0"; */
+"Ahm-L9-5F0.title" = "Змінити фото";
+
+/* Class = "UILabel"; text = "21.07.2016\n13:54"; ObjectID = "BZz-qo-ouG"; */
+"BZz-qo-ouG.text" = "21.07.2016\n13:54";
+
+/* Class = "UIButton"; normalTitle = "Снять фото"; ObjectID = "FE8-g6-a4g"; */
+"FE8-g6-a4g.normalTitle" = "Зняти фото";
+
+/* Class = "UILabel"; text = "Перевод"; ObjectID = "FVy-yD-uhr"; */
+"FVy-yD-uhr.text" = "Переклад";
+
+/* Class = "UIButton"; normalTitle = "Вариант 1"; ObjectID = "FwY-xM-asw"; */
+"FwY-xM-asw.normalTitle" = "Варіант 1";
+
+/* Class = "UILabel"; text = "122"; ObjectID = "G0D-pd-Wbc"; */
+"G0D-pd-Wbc.text" = "122";
+
+/* Class = "UINavigationItem"; title = "Настройки"; ObjectID = "GaM-8m-Hq3"; */
+"GaM-8m-Hq3.title" = "Налаштування";
+
+/* Class = "UILabel"; text = "145"; ObjectID = "GjB-mB-vQh"; */
+"GjB-mB-vQh.text" = "145";
+
+/* Class = "UINavigationItem"; title = "Результаты"; ObjectID = "JSj-EU-xPL"; */
+"JSj-EU-xPL.title" = "Результати";
+
+/* Class = "UINavigationItem"; title = "Слова"; ObjectID = "KYZ-Zo-Xay"; */
+"KYZ-Zo-Xay.title" = "Слова";
+
+/* Class = "UINavigationItem"; title = "Пройти тест"; ObjectID = "KhN-yr-Ub6"; */
+"KhN-yr-Ub6.title" = "Пройти тест";
+
+/* Class = "UIButton"; normalTitle = "Сохранить"; ObjectID = "LoV-xs-bWp"; */
+"LoV-xs-bWp.normalTitle" = "Зберегти";
+
+/* Class = "UILabel"; text = "2"; ObjectID = "MAs-N0-YJZ"; */
+"MAs-N0-YJZ.text" = "2";
+
+/* Class = "UILabel"; text = "John"; ObjectID = "OPM-k0-VNw"; */
+"OPM-k0-VNw.text" = "John";
+
+/* Class = "UILabel"; text = "Количество слов"; ObjectID = "OYu-BC-sf5"; */
+"OYu-BC-sf5.text" = "Кількість слів";
+
+/* Class = "UILabel"; text = "Результат"; ObjectID = "RpM-6k-gpf"; */
+"RpM-6k-gpf.text" = "Результат";
+
+/* Class = "UIButton"; normalTitle = "Закрыть"; ObjectID = "T5C-4D-5SX"; */
+"T5C-4D-5SX.normalTitle" = "Закрити";
+
+/* Class = "UILabel"; text = "Выберите правильный перевод\nследующего слова"; ObjectID = "VmA-ci-WFD"; */
+"VmA-ci-WFD.text" = "Оберіть правильний переклад\nнаступного слова";
+
+/* Class = "UILabel"; text = "8/20"; ObjectID = "Wbj-zr-9Bm"; */
+"Wbj-zr-9Bm.text" = "8/20";
+
+/* Class = "UILabel"; text = "Языки"; ObjectID = "XYM-Hz-DiL"; */
+"XYM-Hz-DiL.text" = "Мови";
+
+/* Class = "UITextField"; placeholder = "Пароль"; ObjectID = "YCN-FO-bVV"; */
+"YCN-FO-bVV.placeholder" = "Пароль";
+
+/* Class = "UITabBarItem"; title = "Пройти тест"; ObjectID = "Z2n-gp-H63"; */
+"Z2n-gp-H63.title" = "Пройти тест";
+
+/* Class = "UILabel"; text = "Слово"; ObjectID = "ZUU-Mk-ugV"; */
+"ZUU-Mk-ugV.text" = "Слово";
+
+/* Class = "UIButton"; normalTitle = "Регистрация"; ObjectID = "bj1-vA-Y0w"; */
+"bj1-vA-Y0w.normalTitle" = "Реєстрація";
+
+/* Class = "UILabel"; text = "1/20"; ObjectID = "cof-VV-53E"; */
+"cof-VV-53E.text" = "1/20";
+
+/* Class = "UIButton"; normalTitle = "Выбрать фото"; ObjectID = "ds7-k7-eTk"; */
+"ds7-k7-eTk.normalTitle" = "Обрати фото";
+
+/* Class = "UIButton"; normalTitle = "Вариант 2"; ObjectID = "ezN-4v-1UO"; */
+"ezN-4v-1UO.normalTitle" = "Варіант 2";
+
+/* Class = "UINavigationItem"; title = "Ваши языки"; ObjectID = "fIq-13-rnG"; */
+"fIq-13-rnG.title" = "Ваші мови";
+
+/* Class = "UILabel"; text = "20%"; ObjectID = "fNb-Xg-8Kt"; */
+"fNb-Xg-8Kt.text" = "20%";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "fea-cG-bFk"; */
+"fea-cG-bFk.text" = "1";
+
+/* Class = "UILabel"; text = "English"; ObjectID = "flA-35-eHc"; */
+"flA-35-eHc.text" = "English";
+
+/* Class = "UIButton"; normalTitle = "Вариант 3"; ObjectID = "hGK-d7-sOy"; */
+"hGK-d7-sOy.normalTitle" = "Варіант 3";
+
+/* Class = "UILabel"; text = "Ваш результат"; ObjectID = "hpW-rs-nfH"; */
+"hpW-rs-nfH.text" = "Ваш результат";
+
+/* Class = "UILabel"; text = "Ответы"; ObjectID = "jIL-TY-dHa"; */
+"jIL-TY-dHa.text" = "Відповіді";
+
+/* Class = "UIButton"; normalTitle = "Запустить тест"; ObjectID = "kLb-yt-Htd"; */
+"kLb-yt-Htd.normalTitle" = "Запустити тест";
+
+/* Class = "UILabel"; text = "15%"; ObjectID = "lEb-7g-m4P"; */
+"lEb-7g-m4P.text" = "15%";
+
+/* Class = "UILabel"; text = "45%"; ObjectID = "mpT-d9-IUx"; */
+"mpT-d9-IUx.text" = "45%";
+
+/* Class = "UILabel"; text = "Слова"; ObjectID = "ogQ-EK-4hd"; */
+"ogQ-EK-4hd.text" = "Слова";
+
+/* Class = "UIButton"; normalTitle = "Сменить пароль"; ObjectID = "paQ-j9-Ztc"; */
+"paQ-j9-Ztc.normalTitle" = "Змінити пароль";
+
+/* Class = "UILabel"; text = "English"; ObjectID = "qEo-rY-buP"; */
+"qEo-rY-buP.text" = "English";
+
+/* Class = "UILabel"; text = "Результат"; ObjectID = "yod-JW-HRX"; */
+"yod-JW-HRX.text" = "Результат";

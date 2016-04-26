@@ -5,9 +5,6 @@
 //  Created by Ruslan on 4/20/16.
 //  Copyright © 2016 Ruslan Palapa. All rights reserved.
 //
-let emptyFieldsMessage = "Не заполнены все поля"
-let loginExistMessage = "Пользователь с таким логином уже существует"
-let incorrrectLoginDataMessage = "Неправильный логин или пароль"
 
 import UIKit
 import RealmSwift
@@ -52,7 +49,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func registerButtonPressed(sender: UIButton) {
         guard let login = self.nameTextField.text where !login.isEmpty, let password = self.passwordTextField.text where !password.isEmpty else {
-            self.showMessage("Some message")
+            self.showMessage(NSLocalizedString("emptyFieldsMessage", comment: ""))
             return
         }
         self.signIn(login, password: password)
@@ -60,7 +57,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func loginButtonPressed(sender: UIButton) {
         guard let login = self.nameTextField.text where !login.isEmpty, let password = self.passwordTextField.text where !password.isEmpty else {
-            self.showMessage("Some message")
+            self.showMessage(NSLocalizedString("emptyFieldsMessage", comment: ""))
             return
         }
         self.logIn(login, password: password)
@@ -81,7 +78,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if !users.isEmpty {
             self.saveUser(login, password: password, ID: users[0].ID)
         } else {
-            self.showMessage(incorrrectLoginDataMessage)
+            self.showMessage(NSLocalizedString("incorrrectLoginDataMessage", comment: ""))
         }
     }
     
@@ -101,7 +98,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             })
             self.saveUser(login, password: password, ID: newUser.ID)
         } else {
-            self.showMessage(loginExistMessage)
+            self.showMessage(NSLocalizedString("loginExistMessage", comment: ""))
+
         }
     }
     

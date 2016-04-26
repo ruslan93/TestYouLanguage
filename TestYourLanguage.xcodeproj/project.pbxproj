@@ -30,6 +30,7 @@
 		2270EDA91CCD1A97009A3776 /* TestSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2270EDA81CCD1A97009A3776 /* TestSettingViewController.swift */; };
 		2270EDAB1CCD20DE009A3776 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2270EDAA1CCD20DE009A3776 /* TestViewController.swift */; };
 		2273BFCA1CCE3096002D0BD1 /* ProfilePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2273BFC91CCE3096002D0BD1 /* ProfilePhotoViewController.swift */; };
+		227D28791CCF7F3600229E55 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 227D287B1CCF7F3600229E55 /* Localizable.strings */; };
 		D58306F9F3F543C537102D6C /* Pods_TestYourLanguage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2574FC851B5242C574BA291F /* Pods_TestYourLanguage.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,9 @@
 		2270EDA81CCD1A97009A3776 /* TestSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSettingViewController.swift; sourceTree = "<group>"; };
 		2270EDAA1CCD20DE009A3776 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		2273BFC91CCE3096002D0BD1 /* ProfilePhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePhotoViewController.swift; sourceTree = "<group>"; };
+		227D286F1CCF7BEB00229E55 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
+		227D287A1CCF7F3600229E55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		227D287C1CCF7F3A00229E55 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2574FC851B5242C574BA291F /* Pods_TestYourLanguage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestYourLanguage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AB44E7321D7201D4C631E43 /* Pods-TestYourLanguage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestYourLanguage.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestYourLanguage/Pods-TestYourLanguage.release.xcconfig"; sourceTree = "<group>"; };
 		C1A9471736842CC7F1286622 /* Pods-TestYourLanguage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestYourLanguage.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestYourLanguage/Pods-TestYourLanguage.debug.xcconfig"; sourceTree = "<group>"; };
@@ -157,15 +161,11 @@
 		225D2F0E1CC7AD5C00AE2337 /* TestYourLanguage */ = {
 			isa = PBXGroup;
 			children = (
+				227D287D1CCF812F00229E55 /* Supporting Files */,
 				223175C91CCE882A00E79795 /* Libs */,
 				225E44791CC9370100227EF5 /* Cells */,
 				225E44721CC7C10B00227EF5 /* Models */,
 				222F34171CC7AEDF00D510B8 /* Controllers */,
-				225D2F0F1CC7AD5C00AE2337 /* AppDelegate.swift */,
-				225D2F131CC7AD5C00AE2337 /* Main.storyboard */,
-				225D2F161CC7AD5C00AE2337 /* Assets.xcassets */,
-				225D2F181CC7AD5C00AE2337 /* LaunchScreen.storyboard */,
-				225D2F1B1CC7AD5C00AE2337 /* Info.plist */,
 				223175C71CCE44E600E79795 /* UIImage+Crop.swift */,
 			);
 			path = TestYourLanguage;
@@ -198,6 +198,19 @@
 				224A33CC1CCEA5B8008444E9 /* TestTableViewCell.swift */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		227D287D1CCF812F00229E55 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				225D2F0F1CC7AD5C00AE2337 /* AppDelegate.swift */,
+				225D2F131CC7AD5C00AE2337 /* Main.storyboard */,
+				225D2F161CC7AD5C00AE2337 /* Assets.xcassets */,
+				225D2F181CC7AD5C00AE2337 /* LaunchScreen.storyboard */,
+				225D2F1B1CC7AD5C00AE2337 /* Info.plist */,
+				227D287B1CCF7F3600229E55 /* Localizable.strings */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		DE632935F1907B7C8732B891 /* Pods */ = {
@@ -277,6 +290,7 @@
 			knownRegions = (
 				en,
 				Base,
+				uk,
 			);
 			mainGroup = 225D2F031CC7AD5C00AE2337;
 			productRefGroup = 225D2F0D1CC7AD5C00AE2337 /* Products */;
@@ -295,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				225D2F1A1CC7AD5C00AE2337 /* LaunchScreen.storyboard in Resources */,
+				227D28791CCF7F3600229E55 /* Localizable.strings in Resources */,
 				225D2F171CC7AD5C00AE2337 /* Assets.xcassets in Resources */,
 				225D2F151CC7AD5C00AE2337 /* Main.storyboard in Resources */,
 			);
@@ -407,6 +422,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				225D2F141CC7AD5C00AE2337 /* Base */,
+				227D286F1CCF7BEB00229E55 /* uk */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -417,6 +433,16 @@
 				225D2F191CC7AD5C00AE2337 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		227D287B1CCF7F3600229E55 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				227D287A1CCF7F3600229E55 /* Base */,
+				227D287C1CCF7F3A00229E55 /* uk */,
+			);
+			name = Localizable.strings;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
