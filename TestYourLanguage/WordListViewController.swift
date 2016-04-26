@@ -17,16 +17,6 @@ class WordListViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         self.realm = try! Realm()
-        let result = Result()
-        result.rightQuestion = 10
-        result.percent = 50
-        result.totalQuestion = 20
-        result.date = NSDate.init()
-        let user = self.realm?.objects(User)[0]
-        let results = self.realm?.objects(Result)
-        try! self.realm!.write({
-//            user!.languages[1].results.append(result)
-        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,14 +36,15 @@ class WordListViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.wordLabel.text = word.word
         cell.translatedWordLabel.text = word.translatedWord
         cell.wordNumber.text = "\(indexPath.row + 1)"
-        cell.rightButtons = [MGSwipeButton(title: "Удалить", backgroundColor: UIColor.redColor())
-            ,MGSwipeButton(title: "Изменить",backgroundColor: UIColor.lightGrayColor())]
+        cell.rightButtons = [MGSwipeButton(title: NSLocalizedString("delete", comment: ""), backgroundColor: UIColor.redColor())
+            ,MGSwipeButton(title:  NSLocalizedString("edit", comment: ""), backgroundColor: UIColor.lightGrayColor())]
         cell.rightSwipeSettings.transition = MGSwipeTransition.ClipCenter
         let expansionSettings = MGSwipeExpansionSettings()
         expansionSettings.buttonIndex = 0
         expansionSettings.fillOnTrigger = false;
         cell.rightExpansion = expansionSettings
         cell.delegate = self
+        cell.backgroundColor = UIColor.clearColor()
         return cell
     }
     
@@ -77,14 +68,14 @@ class WordListViewController: UIViewController, UITableViewDataSource, UITableVi
     //MARK: - Actions
     
     @IBAction func addLanguageBarButtonPressed(sender: AnyObject) {
-        let alert = UIAlertController.init(title: "Добавить новое слово", message: "Введите слово и его перевод", preferredStyle: .Alert)
+        let alert = UIAlertController.init(title: NSLocalizedString("addNewWordTitle", comment: ""), message: NSLocalizedString("addNewWordDescription", comment: ""), preferredStyle: .Alert)
         alert.addTextFieldWithConfigurationHandler { (wordTextField) in
-            wordTextField.placeholder = "Слово"
+            wordTextField.placeholder = NSLocalizedString("word", comment: "")
         }
         alert.addTextFieldWithConfigurationHandler { (translatedTextField) in
-            translatedTextField.placeholder = "Перевод"
+            translatedTextField.placeholder = NSLocalizedString("translate", comment: "")
         }
-        let addAction = UIAlertAction.init(title: "Добавить", style: .Default) { (action:UIAlertAction!) in
+        let addAction = UIAlertAction.init(title: NSLocalizedString("add", comment: ""), style: .Default) { (action:UIAlertAction!) in
             let wordTextField = alert.textFields![0]
             let translatedTextField = alert.textFields![1]
             guard let name = wordTextField.text where !name.isEmpty else{
@@ -95,7 +86,7 @@ class WordListViewController: UIViewController, UITableViewDataSource, UITableVi
             }
             self.addWordToLanguage(name, translatedWord: name2)
         }
-        let cancelAction = UIAlertAction.init(title: "Отменить", style: .Cancel, handler: nil)
+        let cancelAction = UIAlertAction.init(title: NSLocalizedString("cancel", comment: ""), style: .Cancel, handler: nil)
         alert.addAction(cancelAction)
         alert.addAction(addAction)
         self.presentViewController(alert, animated: true, completion: nil)
@@ -128,17 +119,17 @@ class WordListViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func editWord(indexPath: NSIndexPath){
         let selectedWord = self.words![indexPath.row]
-        let alert = UIAlertController.init(title: "Редактировать слово", message:nil, preferredStyle: .Alert)
+        let alert = UIAlertController.init(title: NSLocalizedString("editWord", comment: ""), message:nil, preferredStyle: .Alert)
         alert.addTextFieldWithConfigurationHandler { (wordTextField) in
-            wordTextField.placeholder = "Слово"
+            wordTextField.placeholder = NSLocalizedString("word", comment: "")
             wordTextField.text = selectedWord.word
         }
         alert.addTextFieldWithConfigurationHandler { (translatedTextField) in
-            translatedTextField.placeholder = "Перевод"
+            translatedTextField.placeholder = NSLocalizedString("translate", comment: "")
             translatedTextField.text = selectedWord.translatedWord
         }
 
-        let editAction = UIAlertAction.init(title: "Сохранить", style: .Default) { (action:UIAlertAction!) in
+        let editAction = UIAlertAction.init(title: NSLocalizedString("save", comment: ""), style: .Default) { (action:UIAlertAction!) in
             let wordTextField = alert.textFields![0]
             let translatedTextField = alert.textFields![1]
             guard let name = wordTextField.text where !name.isEmpty else{
@@ -153,7 +144,7 @@ class WordListViewController: UIViewController, UITableViewDataSource, UITableVi
                 self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Right)
             })
         }
-        let cancelAction = UIAlertAction.init(title: "Отменить", style: .Cancel, handler: nil)
+        let cancelAction = UIAlertAction.init(title: NSLocalizedString("cancel", comment: ""), style: .Cancel, handler: nil)
         alert.addAction(cancelAction)
         alert.addAction(editAction)
         self.presentViewController(alert, animated: true, completion: nil)

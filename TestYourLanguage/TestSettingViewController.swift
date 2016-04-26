@@ -72,6 +72,7 @@ class TestSettingViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCellWithIdentifier("TestTableViewCell") as! TestTableViewCell!
         cell.languageLabel.text = self.languages[indexPath.row].name
         cell.flagImageView?.image = UIImage.init(named: "\(indexPath.row + 1)")
+        cell.backgroundColor = UIColor.clearColor()
         return cell
     }
     

@@ -93,8 +93,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             } else {
                 newUser.ID = 0
             }
+            
+            let englishLanguage = Language()
+            englishLanguage.ID = 0
+            englishLanguage.name = "English"
+            englishLanguage.owner = newUser
+            
+            let deutschLanguage = Language()
+            deutschLanguage.ID = 1
+            deutschLanguage.name = "Deutsch"
+            deutschLanguage.owner = newUser
+            
             try! realm.write({
                 realm.add(newUser)
+                newUser.languages.append(englishLanguage)
+                newUser.languages.append(deutschLanguage)
             })
             self.saveUser(login, password: password, ID: newUser.ID)
         } else {

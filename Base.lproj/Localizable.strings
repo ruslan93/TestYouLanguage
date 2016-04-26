@@ -9,3 +9,13 @@
 "emptyFieldsMessage" = "Не заполнены все поля";
 "loginExistMessage" = "Пользователь с таким логином уже существует";
 "incorrrectLoginDataMessage" = "Неправильный логин или пароль";
+"cancel" = "Отменить";
+"add" = "Добавить";
+"edit" = "Изменить";
+"delete" = "Удалить";
+"save" = "Сохранить";
+"word" = "Слово";
+"editWord" = "Редактировать";
+"translate" = "Перевод";
+"addNewWordTitle" = "Добавить новое слово";
+"addNewWordDescription" = "Введите слово и его перевод";

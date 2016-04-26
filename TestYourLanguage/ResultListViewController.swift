@@ -58,13 +58,14 @@ class ResultListViewController: UIViewController, UITableViewDataSource, UITable
         let cell = tableView.dequeueReusableCellWithIdentifier("ResultTableViewCell") as! ResultTableViewCell!
         let result = (self.realm?.objects(Language).filter("results.@count > 0 && owner == %@", self.user!))![indexPath.section].results[indexPath.row]
         cell.dateLabel.text = "\(result.date)"
-        cell.resultLabel.text = "\(result.percent)"
+        cell.resultLabel.text = "\(result.percent)%"
         cell.rightAnswerLabel.text = "\(result.rightQuestion)/\(result.totalQuestion)"
         if result.percent >= 50{
             cell.resultLabel.textColor = UIColor.greenColor()
         } else {
             cell.resultLabel.textColor = UIColor.redColor()
         }
+        cell.backgroundColor = UIColor.clearColor()
         return cell
     }
     
@@ -76,6 +77,7 @@ class ResultListViewController: UIViewController, UITableViewDataSource, UITable
         let cell = tableView.dequeueReusableCellWithIdentifier("ResultHeaderTableViewCell") as! ResultHeaderTableViewCell!
         cell.languageLabel.text = "\(self.user!.languages[section].name)"
         cell.flagImageView.image = UIImage.init(named: "\(section + 1)")
+        cell.backgroundColor = UIColor.clearColor()
         return cell
     }
     

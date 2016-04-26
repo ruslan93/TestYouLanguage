@@ -8,3 +8,13 @@
 "emptyFieldsMessage" = "Не заповнені всі поля";
 "loginExistMessage" = "Користувач з таким логіном уже зареєстрований";
 "incorrrectLoginDataMessage" = "Невірний логін або пароль";
+"cancel" = "Відмінити";
+"add" = "Добавити";
+"edit" = "Змінити";
+"delete" = "Видалити";
+"save" = "Зберегти";
+"word" = "Слово";
+"editWord" = "Редагувати";
+"translate" = "Переклад";
+"addNewWordTitle" = "Добавити нове слово";
+"addNewWordDescription" = "Введіть слово та його переклад";

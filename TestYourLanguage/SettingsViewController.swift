@@ -56,7 +56,6 @@ class SettingsViewController: UIViewController {
                 let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
                 let profileImage = UIImage.init(contentsOfFile: "\(documentsPath)/\(self.user!.profileImage)")
                 self.userImageView.image = profileImage
-                print(self.user!.profileImage)
             } else {
                 self.userImageView.image = UIImage.init(named: "profile")
             }

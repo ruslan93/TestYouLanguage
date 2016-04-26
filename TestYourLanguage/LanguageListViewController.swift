@@ -10,6 +10,7 @@ import UIKit
 import RealmSwift
 import MGSwipeTableCell
 import IBAnimatable
+import AVFoundation;
 
 class LanguageListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MGSwipeTableCellDelegate {
     @IBOutlet weak var tableView: UITableView!
@@ -81,28 +82,12 @@ class LanguageListViewController: UIViewController, UITableViewDataSource, UITab
             }
             cell.lastResultLabel.text = "\(language.results.last!.percent)%"
         }
-        cell.rightButtons = [MGSwipeButton(title: "Удалить", backgroundColor: UIColor.redColor())
-            ,MGSwipeButton(title: "Изменить",backgroundColor: UIColor.lightGrayColor())]
-        cell.rightSwipeSettings.transition = MGSwipeTransition.ClipCenter
-        let expansionSettings = MGSwipeExpansionSettings()
-        expansionSettings.buttonIndex = 0
-        expansionSettings.fillOnTrigger = false;
-        cell.rightExpansion = expansionSettings
-        cell.delegate = self
+        cell.backgroundColor = UIColor.clearColor()
         return cell
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 100.0
-    }
-    
-     func swipeTableCell(cell: MGSwipeTableCell!, tappedButtonAtIndex index: Int, direction: MGSwipeDirection, fromExpansion: Bool) -> Bool{
-        if index == 0{
-            self.deleteLanguage(self.tableView.indexPathForCell(cell)!)
-        } else {
-            self.editLanguage(self.tableView.indexPathForCell(cell)!)
-        }
-        return true
     }
     
     // MARK: - UpdadeLanguagies
@@ -124,72 +109,5 @@ class LanguageListViewController: UIViewController, UITableViewDataSource, UITab
                 newController.words = self.laguagies![selectedIndexPath!.row].words
             }
         }
-    }
-    
-    // MARK: - Methods
-
-    @IBAction func addLanguageBarButtonPressed(sender: AnyObject) {
-        let alert = UIAlertController.init(title: "Добавить язык", message: "Введите название языка, который вы хотите добавить в свой список", preferredStyle: .Alert)
-        alert.addTextFieldWithConfigurationHandler { (nameTextField) in
-            nameTextField.placeholder = "Название языка"
-        }
-        let addAction = UIAlertAction.init(title: "Добавить", style: .Default) { (action:UIAlertAction!) in
-            let nameTextField = alert.textFields![0]
-            guard let name = nameTextField.text where !name.isEmpty else{
-                return
-            }
-            self.addLanguageToUser(name)
-        }
-        let cancelAction = UIAlertAction.init(title: "Отменить", style: .Cancel, handler: nil)
-        alert.addAction(cancelAction)
-        alert.addAction(addAction)
-        self.presentViewController(alert, animated: true, completion: nil)
-    }
-    
-    func addLanguageToUser(name: String){
-        let language = Language()
-        language.name = name
-        if self.user!.languages.isEmpty {
-            language.ID = 0
-        } else {
-            let maxID = self.realm?.objects(Language).filter("owner == %@", self.user!).max("ID") as Int!
-            language.ID = maxID + 1
-        }
-        language.owner = self.user!
-        try! self.realm!.write({
-            self.user!.languages.append(language)
-            self.tableView.insertRowsAtIndexPaths([NSIndexPath.init(forRow: self.user!.languages.count - 1, inSection: 0)], withRowAnimation: .Right)
-        })
-    }
-    
-    func deleteLanguage(indexPath: NSIndexPath){
-        let selectedLanguage = self.user!.languages[indexPath.row]
-        try! self.realm!.write({
-            realm?.delete(selectedLanguage)
-            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Left)
-        })
-    }
-    
-    func editLanguage(indexPath: NSIndexPath){
-        let selectedLanguage = self.user!.languages[indexPath.row]
-        let alert = UIAlertController.init(title: "Редактировать язык", message:nil, preferredStyle: .Alert)
-        alert.addTextFieldWithConfigurationHandler { (nameTextField) in
-            nameTextField.placeholder = "Название языка"
-            nameTextField.text = selectedLanguage.name
-        }
-        let editAction = UIAlertAction.init(title: "Сменить", style: .Default) { (action:UIAlertAction!) in
-            let nameTextField = alert.textFields![0]
-            guard let name = nameTextField.text where !name.isEmpty else{
-                return
-            }
-            try! self.realm!.write({
-                selectedLanguage.name = nameTextField.text!
-                self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Right)
-            })
-        }
-        let cancelAction = UIAlertAction.init(title: "Отменить", style: .Cancel, handler: nil)
-        alert.addAction(cancelAction)
-        alert.addAction(editAction)
-        self.presentViewController(alert, animated: true, completion: nil)
     }
 }

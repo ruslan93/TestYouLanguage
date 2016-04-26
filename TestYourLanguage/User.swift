@@ -20,6 +20,7 @@ class User: Object {
 class Language: Object {
     dynamic var owner: User!
     let words = List<Word>()
+    let themes = List<Theme>()
     let results = List<Result>()
     dynamic var ID = 0
     dynamic var name = ""
@@ -31,6 +32,11 @@ class Word: Object {
     dynamic var translatedWord = ""
     dynamic var falseAnswerCount = 0
     dynamic var ID = 0
+}
+
+class Theme: Object {
+    dynamic var owner: Language!
+    let words = List<Word>()
 }
 
 class Result: Object {
