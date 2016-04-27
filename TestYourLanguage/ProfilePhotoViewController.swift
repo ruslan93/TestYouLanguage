@@ -10,7 +10,13 @@ import UIKit
 import RealmSwift
 
 class ProfilePhotoViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    //MARK: - Properties
+
+    @IBOutlet weak var profileImageView: UIImageView!
+
     let realm = try! Realm()
+    
     var user: User?{
         get {
             let users = self.realm.objects(User).filter("ID == %@", NSUserDefaults.standardUserDefaults().valueForKey("ID")!)
@@ -21,7 +27,9 @@ class ProfilePhotoViewController: UIViewController,UIImagePickerControllerDelega
             }
         }
     }
-    @IBOutlet weak var profileImageView: UIImageView!
+    
+    //MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if self.user != nil{

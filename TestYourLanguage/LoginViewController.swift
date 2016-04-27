@@ -11,11 +11,19 @@ import RealmSwift
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
+    //MARK: - Properties
+
     @IBOutlet weak var nameTextField: UITextField!
+    
     @IBOutlet weak var passwordTextField: UITextField!
+    
     @IBOutlet weak var registerButton: UIButton!
+    
     @IBOutlet weak var enterButton: UIButton!
+    
     let realm = try! Realm()
+
+    //MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,14 +33,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        for button in [self.registerButton] {
-            button.layer.borderWidth = 1
-            button.layer.borderColor = UIColor.whiteColor().CGColor
-        }
     }
     
     //MARK: - UITextFieldDelegate
@@ -45,7 +45,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return true
     }
 
-    //MARK: - UITextFieldDelegate
+    //MARK: - Actions
     
     @IBAction func registerButtonPressed(sender: UIButton) {
         guard let login = self.nameTextField.text where !login.isEmpty, let password = self.passwordTextField.text where !password.isEmpty else {
@@ -63,6 +63,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.logIn(login, password: password)
     }
     
+    //MARK: - Methods
+    
     func showMessage (message: String){
         let alert = UIAlertController.init(title: message, message: "", preferredStyle: UIAlertControllerStyle.Alert)
         let okAction = UIAlertAction.init(title: "Ok", style: UIAlertActionStyle.Default, handler: nil
@@ -70,9 +72,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         alert.addAction(okAction)
         self .presentViewController(alert, animated: true, completion: nil)
     }
-    
-    //MARK: - Methods
-    
+
     func logIn(login:String, password: String){
         let users = realm.objects(User).filter("password == %@ && login == %@", password, login)
         if !users.isEmpty {
@@ -93,7 +93,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             } else {
                 newUser.ID = 0
             }
-            
             let englishLanguage = Language()
             englishLanguage.ID = 0
             englishLanguage.name = "English"
@@ -112,7 +111,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.saveUser(login, password: password, ID: newUser.ID)
         } else {
             self.showMessage(NSLocalizedString("loginExistMessage", comment: ""))
-
         }
     }
     

@@ -17,6 +17,7 @@
 "word" = "Слово";
 "editWord" = "Редактировать";
 "translate" = "Перевод";
+"allWords" = "Все слова";
 "addNewWordTitle" = "Добавить новое слово";
 "addNewWordDescription" = "Введите слово и его перевод";
 "addNewThemeTitle" = "Добавить новую тему";

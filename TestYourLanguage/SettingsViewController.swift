@@ -11,14 +11,24 @@ import RealmSwift
 
 class SettingsViewController: UIViewController {
 
+    //MARK: - Properties
+
     @IBOutlet weak var userImageView: UIImageView!
+    
     @IBOutlet weak var userNameLabel: UILabel!
+    
     @IBOutlet weak var languageNumberLabel: UILabel!
+    
     @IBOutlet weak var wordsNumberLabel: UILabel!
+    
     @IBOutlet weak var lastResultLabel: UILabel!
+    
     @IBOutlet weak var exitButton: UIButton!
+    
     @IBOutlet weak var changePasswordButton: UIButton!
+    
     var realm: Realm? = nil
+    
     var user: User? {
         get {
             let users = self.realm!.objects(User).filter("ID == %@", NSUserDefaults.standardUserDefaults().valueForKey("ID")!)
@@ -30,6 +40,8 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    //MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.realm = try! Realm()
@@ -41,6 +53,8 @@ class SettingsViewController: UIViewController {
         self.prepareView()
     }
     
+    // MARK: - Methods
+
     func prepareView(){
         if self.user != nil {
             self.languageNumberLabel.text = "\(self.user!.languages.count)"
@@ -66,10 +80,7 @@ class SettingsViewController: UIViewController {
             }
         }
     }
-    
-    @IBAction func changeButtonPressed(sender: AnyObject) {
-        
-    }
+
     // MARK: - Navigation
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

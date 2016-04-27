@@ -11,7 +11,6 @@
 		220E17521CCA9512006285F9 /* ResultListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220E17511CCA9512006285F9 /* ResultListViewController.swift */; };
 		220E17541CCA9703006285F9 /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220E17531CCA9703006285F9 /* ResultTableViewCell.swift */; };
 		220E17561CCAA04C006285F9 /* ResultHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220E17551CCAA04C006285F9 /* ResultHeaderTableViewCell.swift */; };
-		222F34191CC7AF0B00D510B8 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222F34181CC7AF0B00D510B8 /* RootViewController.swift */; };
 		223175C81CCE44E600E79795 /* UIImage+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223175C71CCE44E600E79795 /* UIImage+Crop.swift */; };
 		224A33C81CCE95AE008444E9 /* MBCircularProgressBarLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 224A33C51CCE95AE008444E9 /* MBCircularProgressBarLayer.m */; };
 		224A33C91CCE95AE008444E9 /* MBCircularProgressBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 224A33C71CCE95AE008444E9 /* MBCircularProgressBarView.m */; };
@@ -49,7 +48,6 @@
 		220E17511CCA9512006285F9 /* ResultListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultListViewController.swift; sourceTree = "<group>"; };
 		220E17531CCA9703006285F9 /* ResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
 		220E17551CCAA04C006285F9 /* ResultHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultHeaderTableViewCell.swift; sourceTree = "<group>"; };
-		222F34181CC7AF0B00D510B8 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		223175C71CCE44E600E79795 /* UIImage+Crop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Crop.swift"; sourceTree = "<group>"; };
 		223175CA1CCE885700E79795 /* TestYourLanguage-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TestYourLanguage-Bridging-Header.h"; sourceTree = "<group>"; };
 		224A33C41CCE95AE008444E9 /* MBCircularProgressBarLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCircularProgressBarLayer.h; sourceTree = "<group>"; };
@@ -57,13 +55,13 @@
 		224A33C61CCE95AE008444E9 /* MBCircularProgressBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCircularProgressBarView.h; sourceTree = "<group>"; };
 		224A33C71CCE95AE008444E9 /* MBCircularProgressBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBCircularProgressBarView.m; sourceTree = "<group>"; };
 		2254C2BF1CD08F340014A822 /* ThemesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemesViewController.swift; sourceTree = "<group>"; };
-		225D2F0C1CC7AD5C00AE2337 /* TestYourLanguage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestYourLanguage.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		225D2F0C1CC7AD5C00AE2337 /* Language Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Language Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		225D2F0F1CC7AD5C00AE2337 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		225D2F141CC7AD5C00AE2337 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		225D2F161CC7AD5C00AE2337 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		225D2F191CC7AD5C00AE2337 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		225D2F1B1CC7AD5C00AE2337 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		225D2F201CC7AD5C00AE2337 /* TestYourLanguageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestYourLanguageTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		225D2F201CC7AD5C00AE2337 /* Language Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Language Test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		225D2F241CC7AD5C00AE2337 /* TestYourLanguageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestYourLanguageTests.swift; sourceTree = "<group>"; };
 		225D2F261CC7AD5C00AE2337 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		225E44731CC7C14600227EF5 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -113,7 +111,6 @@
 		222F34171CC7AEDF00D510B8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				222F34181CC7AF0B00D510B8 /* RootViewController.swift */,
 				225E44751CC7D53E00227EF5 /* LanguageListViewController.swift */,
 				225E44771CC7D6B000227EF5 /* LoginViewController.swift */,
 				225E447E1CC94B0D00227EF5 /* WordListViewController.swift */,
@@ -152,8 +149,8 @@
 		225D2F0D1CC7AD5C00AE2337 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				225D2F0C1CC7AD5C00AE2337 /* TestYourLanguage.app */,
-				225D2F201CC7AD5C00AE2337 /* TestYourLanguageTests.xctest */,
+				225D2F0C1CC7AD5C00AE2337 /* Language Test.app */,
+				225D2F201CC7AD5C00AE2337 /* Language Test.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -225,9 +222,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		225D2F0B1CC7AD5C00AE2337 /* TestYourLanguage */ = {
+		225D2F0B1CC7AD5C00AE2337 /* Language Test */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 225D2F291CC7AD5C00AE2337 /* Build configuration list for PBXNativeTarget "TestYourLanguage" */;
+			buildConfigurationList = 225D2F291CC7AD5C00AE2337 /* Build configuration list for PBXNativeTarget "Language Test" */;
 			buildPhases = (
 				7A8303C8651D7A10F43D0B01 /* Check Pods Manifest.lock */,
 				225D2F081CC7AD5C00AE2337 /* Sources */,
@@ -240,14 +237,14 @@
 			);
 			dependencies = (
 			);
-			name = TestYourLanguage;
+			name = "Language Test";
 			productName = TestYourLanguage;
-			productReference = 225D2F0C1CC7AD5C00AE2337 /* TestYourLanguage.app */;
+			productReference = 225D2F0C1CC7AD5C00AE2337 /* Language Test.app */;
 			productType = "com.apple.product-type.application";
 		};
-		225D2F1F1CC7AD5C00AE2337 /* TestYourLanguageTests */ = {
+		225D2F1F1CC7AD5C00AE2337 /* Language TestTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 225D2F2C1CC7AD5C00AE2337 /* Build configuration list for PBXNativeTarget "TestYourLanguageTests" */;
+			buildConfigurationList = 225D2F2C1CC7AD5C00AE2337 /* Build configuration list for PBXNativeTarget "Language TestTests" */;
 			buildPhases = (
 				225D2F1C1CC7AD5C00AE2337 /* Sources */,
 				225D2F1D1CC7AD5C00AE2337 /* Frameworks */,
@@ -258,9 +255,9 @@
 			dependencies = (
 				225D2F221CC7AD5C00AE2337 /* PBXTargetDependency */,
 			);
-			name = TestYourLanguageTests;
+			name = "Language TestTests";
 			productName = TestYourLanguageTests;
-			productReference = 225D2F201CC7AD5C00AE2337 /* TestYourLanguageTests.xctest */;
+			productReference = 225D2F201CC7AD5C00AE2337 /* Language Test.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -283,7 +280,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 225D2F071CC7AD5C00AE2337 /* Build configuration list for PBXProject "TestYourLanguage" */;
+			buildConfigurationList = 225D2F071CC7AD5C00AE2337 /* Build configuration list for PBXProject "Language Test" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -297,8 +294,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				225D2F0B1CC7AD5C00AE2337 /* TestYourLanguage */,
-				225D2F1F1CC7AD5C00AE2337 /* TestYourLanguageTests */,
+				225D2F0B1CC7AD5C00AE2337 /* Language Test */,
+				225D2F1F1CC7AD5C00AE2337 /* Language TestTests */,
 			);
 		};
 /* End PBXProject section */
@@ -394,7 +391,6 @@
 				220E17561CCAA04C006285F9 /* ResultHeaderTableViewCell.swift in Sources */,
 				223175C81CCE44E600E79795 /* UIImage+Crop.swift in Sources */,
 				225E44761CC7D53E00227EF5 /* LanguageListViewController.swift in Sources */,
-				222F34191CC7AF0B00D510B8 /* RootViewController.swift in Sources */,
 				224A33C91CCE95AE008444E9 /* MBCircularProgressBarView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,7 +408,7 @@
 /* Begin PBXTargetDependency section */
 		225D2F221CC7AD5C00AE2337 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 225D2F0B1CC7AD5C00AE2337 /* TestYourLanguage */;
+			target = 225D2F0B1CC7AD5C00AE2337 /* Language Test */;
 			targetProxy = 225D2F211CC7AD5C00AE2337 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -543,7 +539,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.palapa.TestYourLanguage;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Language Test";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TestYourLanguage/TestYourLanguage-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
@@ -564,7 +560,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.palapa.TestYourLanguage;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Language Test";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TestYourLanguage/TestYourLanguage-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
@@ -579,8 +575,8 @@
 				INFOPLIST_FILE = TestYourLanguageTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.palapa.TestYourLanguageTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestYourLanguage.app/TestYourLanguage";
+				PRODUCT_NAME = "Language Test";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Language Test.app/Language Test";
 			};
 			name = Debug;
 		};
@@ -591,15 +587,15 @@
 				INFOPLIST_FILE = TestYourLanguageTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.palapa.TestYourLanguageTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestYourLanguage.app/TestYourLanguage";
+				PRODUCT_NAME = "Language Test";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Language Test.app/Language Test";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		225D2F071CC7AD5C00AE2337 /* Build configuration list for PBXProject "TestYourLanguage" */ = {
+		225D2F071CC7AD5C00AE2337 /* Build configuration list for PBXProject "Language Test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				225D2F271CC7AD5C00AE2337 /* Debug */,
@@ -608,7 +604,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		225D2F291CC7AD5C00AE2337 /* Build configuration list for PBXNativeTarget "TestYourLanguage" */ = {
+		225D2F291CC7AD5C00AE2337 /* Build configuration list for PBXNativeTarget "Language Test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				225D2F2A1CC7AD5C00AE2337 /* Debug */,
@@ -617,7 +613,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		225D2F2C1CC7AD5C00AE2337 /* Build configuration list for PBXNativeTarget "TestYourLanguageTests" */ = {
+		225D2F2C1CC7AD5C00AE2337 /* Build configuration list for PBXNativeTarget "Language TestTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				225D2F2D1CC7AD5C00AE2337 /* Debug */,

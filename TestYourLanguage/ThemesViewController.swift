@@ -25,7 +25,7 @@ class ThemesViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         self.realm = try! Realm()
-        // Do any additional setup after loading the view.
+        self.title = "Список тем"
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,8 +53,13 @@ class ThemesViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ThemeTableViewCell") as! ThemeTableViewCell!
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = cell as! ThemeTableViewCell
         if indexPath.row == 0 {
-            cell.themeNameLabel!.text = "Все слова"
+            cell.themeNameLabel!.text = NSLocalizedString("allWords", comment: "")
             cell.startTestButton.enabled = self.language.words.count > 4
         } else {
             cell.themeNameLabel!.text = self.language.themes[indexPath.row-1].name
@@ -72,7 +77,6 @@ class ThemesViewController: UIViewController, UITableViewDataSource, UITableView
             cell.delegate = self
         }
         cell.backgroundColor = UIColor.clearColor()
-        return cell
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -94,7 +98,6 @@ class ThemesViewController: UIViewController, UITableViewDataSource, UITableView
     
     //MARK: - Actions
     
-    
     @IBAction func startTestButtonPressed(sender: UIButton) {
         let testController = self.storyboard?.instantiateViewControllerWithIdentifier("TestViewController") as! TestViewController
         testController.language = self.language
@@ -109,7 +112,7 @@ class ThemesViewController: UIViewController, UITableViewDataSource, UITableView
     @IBAction func addThemeBarButtonPressed(sender: AnyObject) {
         let alert = UIAlertController.init(title: NSLocalizedString("addNewThemeTitle", comment: ""), message: nil, preferredStyle: .Alert)
         alert.addTextFieldWithConfigurationHandler { (themeTextField) in
-            themeTextField.placeholder = NSLocalizedString("theme", comment: "")
+            themeTextField.placeholder = "Тема"
         }
         let addAction = UIAlertAction.init(title: NSLocalizedString("add", comment: ""), style: .Default) { (action:UIAlertAction!) in
             let themeTextField = alert.textFields![0]
@@ -124,7 +127,7 @@ class ThemesViewController: UIViewController, UITableViewDataSource, UITableView
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
-    //MARK: - Actions
+    //MARK: - Methods
     
     func addThemeToLanguage(name: String){
         let theme = Theme()
@@ -158,7 +161,7 @@ class ThemesViewController: UIViewController, UITableViewDataSource, UITableView
             }
             try! self.realm!.write({
                 selectedTheme.name = name
-                self.themesTableView.reloadRowsAtIndexPaths([NSIndexPath.init(forRow: indexPath.row - 1, inSection: 0)], withRowAnimation: .Right)
+                self.themesTableView.reloadData()
             })
         }
         let cancelAction = UIAlertAction.init(title: NSLocalizedString("cancel", comment: ""), style: .Cancel, handler: nil)
@@ -168,6 +171,7 @@ class ThemesViewController: UIViewController, UITableViewDataSource, UITableView
     }
 
     // MARK: - Navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier! == "wordsSegue"{
             let selectedIndexPath = self.themesTableView.indexPathForSelectedRow
@@ -182,12 +186,6 @@ class ThemesViewController: UIViewController, UITableViewDataSource, UITableView
                     newController.theme = self.language.themes[selectedIndexPath!.row - 1]
                 }
             }
-            
-//            if segue.identifier == "runTestSegue" {
-//                let testController = segue.destinationViewController as! TestViewController
-//                testController.language = self.languages[self.selectedLanguageIndexPath!.row]
-//            }
-
         }
     }
 }

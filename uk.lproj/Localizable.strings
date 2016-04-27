@@ -1,10 +1,4 @@
-/* 
-  Localizable.strings
-  TestYourLanguage
 
-  Created by Ruslan on 4/26/16.
-  Copyright © 2016 Ruslan Palapa. All rights reserved.
-*/
 "emptyFieldsMessage" = "Не заповнені всі поля";
 "loginExistMessage" = "Користувач з таким логіном уже зареєстрований";
 "incorrrectLoginDataMessage" = "Невірний логін або пароль";
@@ -16,6 +10,7 @@
 "word" = "Слово";
 "editWord" = "Редагувати";
 "translate" = "Переклад";
+"allWords" = "Всі слова";
 "addNewWordTitle" = "Добавити нове слово";
 "addNewWordDescription" = "Введіть слово та його переклад";
 "addNewThemeTitle" = "Добавити нову тему";

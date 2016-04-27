@@ -10,8 +10,13 @@ import UIKit
 import RealmSwift
 
 class ResultListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    //MARK: - Properties
+
     @IBOutlet weak var tableView: UITableView!
+    
     var realm: Realm? = nil
+    
     var user: User? {
         get {
             if self.realm == nil {
@@ -26,6 +31,8 @@ class ResultListViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
+    //MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.realm = try! Realm()
@@ -43,6 +50,7 @@ class ResultListViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     // MARK: - UITableViewDelegate
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int{
         if self.user == nil{
             return 0
@@ -56,6 +64,11 @@ class ResultListViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ResultTableViewCell") as! ResultTableViewCell!
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = cell as! ResultTableViewCell
         let result = (self.realm?.objects(Language).filter("results.@count > 0 && owner == %@", self.user!))![indexPath.section].results[indexPath.row]
         cell.dateLabel.text = "\(result.date)"
         cell.resultLabel.text = "\(result.percent)%"
@@ -66,7 +79,6 @@ class ResultListViewController: UIViewController, UITableViewDataSource, UITable
             cell.resultLabel.textColor = UIColor.redColor()
         }
         cell.backgroundColor = UIColor.clearColor()
-        return cell
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -75,8 +87,9 @@ class ResultListViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCellWithIdentifier("ResultHeaderTableViewCell") as! ResultHeaderTableViewCell!
-        cell.languageLabel.text = "\(self.user!.languages[section].name)"
-        cell.flagImageView.image = UIImage.init(named: "\(section + 1)")
+        let language = self.realm?.objects(Language).filter("results.@count > 0 && owner == %@", self.user!)[section]
+        cell.languageLabel.text = "\(language!.name)"
+        cell.flagImageView.image = UIImage.init(named: "\(language!.name)")
         cell.backgroundColor = UIColor.clearColor()
         return cell
     }
@@ -84,15 +97,4 @@ class ResultListViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 60.0
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

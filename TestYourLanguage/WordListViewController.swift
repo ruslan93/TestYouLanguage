@@ -12,6 +12,10 @@ import MGSwipeTableCell
 
 class WordListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MGSwipeTableCellDelegate {
     
+    //MARK: - Properties
+
+    var realm: Realm? = nil
+
     var language: Language!
     
     var theme: Theme!
@@ -27,11 +31,11 @@ class WordListViewController: UIViewController, UITableViewDataSource, UITableVi
             }
         }
     }
-    
+
     @IBOutlet weak var tableView: UITableView!
     
-    var realm: Realm? = nil
-    
+    //MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.realm = try! Realm()
@@ -50,6 +54,11 @@ class WordListViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("WordTableViewCell") as! WordTableViewCell!
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = cell as! WordTableViewCell
         let word = self.words[indexPath.row]
         cell.wordLabel.text = word.word
         cell.translatedWordLabel.text = word.translatedWord
@@ -63,7 +72,6 @@ class WordListViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.rightExpansion = expansionSettings
         cell.delegate = self
         cell.backgroundColor = UIColor.clearColor()
-        return cell
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -96,13 +104,13 @@ class WordListViewController: UIViewController, UITableViewDataSource, UITableVi
         let addAction = UIAlertAction.init(title: NSLocalizedString("add", comment: ""), style: .Default) { (action:UIAlertAction!) in
             let wordTextField = alert.textFields![0]
             let translatedTextField = alert.textFields![1]
-            guard let name = wordTextField.text where !name.isEmpty else{
+            guard let word = wordTextField.text where !word.isEmpty else{
                 return
             }
-            guard let name2 = translatedTextField.text where !name2.isEmpty else{
+            guard let translatedWord = translatedTextField.text where !translatedWord.isEmpty else{
                 return
             }
-            self.addWordToLanguage(name, translatedWord: name2)
+            self.addWordToLanguage(word, translatedWord: translatedWord)
         }
         let cancelAction = UIAlertAction.init(title: NSLocalizedString("cancel", comment: ""), style: .Cancel, handler: nil)
         alert.addAction(cancelAction)
@@ -110,7 +118,7 @@ class WordListViewController: UIViewController, UITableViewDataSource, UITableVi
         self.presentViewController(alert, animated: true, completion: nil)
     }
 
-    //MARK: - Actions
+    //MARK: - Methods
 
     func addWordToLanguage(word: String, translatedWord: String){
         let newWord = Word()
@@ -153,10 +161,10 @@ class WordListViewController: UIViewController, UITableViewDataSource, UITableVi
         let editAction = UIAlertAction.init(title: NSLocalizedString("save", comment: ""), style: .Default) { (action:UIAlertAction!) in
             let wordTextField = alert.textFields![0]
             let translatedTextField = alert.textFields![1]
-            guard let name = wordTextField.text where !name.isEmpty else{
+            guard let word = wordTextField.text where !word.isEmpty else{
                 return
             }
-            guard let name2 = translatedTextField.text where !name2.isEmpty else{
+            guard let translatedWord = translatedTextField.text where !translatedWord.isEmpty else{
                 return
             }
             try! self.realm!.write({

@@ -14,6 +14,8 @@ import AVFoundation;
 
 class TestViewController: UIViewController, AVSpeechSynthesizerDelegate {
 
+    //MARK: - Properties
+
     var realm: Realm = try! Realm()
     
     var random = 0
@@ -42,14 +44,6 @@ class TestViewController: UIViewController, AVSpeechSynthesizerDelegate {
     
     var synthesizer = AVSpeechSynthesizer.init()
     
-    var textToSpeech: AVSpeechUtterance {
-        get {
-//            return AVSpeechUtterance.init(string: self.wordsList[self.random].word)
-            return AVSpeechUtterance.init(string: "how are you")
-
-        }
-    }
-    
     var voice: AVSpeechSynthesisVoice {
         get {
             if self.language!.name == "English" {
@@ -62,7 +56,6 @@ class TestViewController: UIViewController, AVSpeechSynthesizerDelegate {
         }
     }
 
-    
     @IBOutlet weak var progressView: MBCircularProgressBarView!
     
     @IBOutlet weak var resultLabel: UILabel!
@@ -85,6 +78,8 @@ class TestViewController: UIViewController, AVSpeechSynthesizerDelegate {
     
     @IBOutlet weak var testResultView: UIView!
     
+    //MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.reusultView.hidden = true
@@ -94,6 +89,75 @@ class TestViewController: UIViewController, AVSpeechSynthesizerDelegate {
         self.synthesizer.delegate = self
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    @IBAction func closeTestButtonPressed(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    // MARK: - Actions
+
+    @IBAction func buttonPressed(sender: UIButton) {
+        if sender.tag == self.random {
+            self.rightAnswer = self.rightAnswer + 1
+            self.answerStatusLabel.text = "Правильно"
+            self.answerResultView.backgroundColor = UIColor(red: 0.000, green: 0.678, blue: 0.322, alpha: 1.00)
+            self.answerStatusImageView.image = UIImage.init(named: "happy")
+        } else {
+            self.answerStatusLabel.text = "Неправильно"
+            self.answerResultView.backgroundColor = UIColor(red: 0.875, green: 0.000, blue: 0.000, alpha: 1.00)
+            self.answerStatusImageView.image = UIImage.init(named: "sad")
+            try! self.realm.write({
+                self.wordsList[self.random].falseAnswerCount = self.wordsList[self.random].falseAnswerCount + 1
+            })
+        }
+        self.answerWordLabel.text = self.wordsList[self.random].word
+        self.answerTranslatedWordLabel.text = self.wordsList[self.random].translatedWord
+        self.showAnswerResult()
+    }
+    
+    @IBAction func continueButtonPressed(sender: AnyObject) {
+        self.answerResultView.hidden = true
+        if self.currentQuestion < 20 {
+            self.currentQuestion = self.currentQuestion + 1
+            self.resultLabel.text = "\(self.currentQuestion)/20"
+            self.reusultView.hidden = true
+            self.wordsList = []
+            self.fillWordsList()
+        } else {
+            self.showResult()
+        }
+    }
+    
+    @IBAction func slowSpeechTextButtonPressed(sender: AnyObject) {
+        if self.synthesizer.speaking {
+            return
+        }
+        let speech = AVSpeechSynthesizer.init()
+        speech.delegate = self
+        let textToSpeech = AVSpeechUtterance.init(string: self.wordLabel.text)
+        textToSpeech.voice = self.voice
+        textToSpeech.rate = 0.2
+        speech.speakUtterance(textToSpeech)
+    }
+    
+    @IBAction func speechTextButtonPressed(sender: AnyObject) {
+        if self.synthesizer.speaking {
+            return
+        }
+        let speech = AVSpeechSynthesizer.init()
+        speech.delegate = self
+        let textToSpeech = AVSpeechUtterance.init(string: self.wordLabel.text)
+        textToSpeech.voice = self.voice
+        textToSpeech.rate = 0.5
+        speech.speakUtterance(textToSpeech)
+        
+    }
+    
+    // MARK: - Methods
+
     func fillWordsList(){
         for _ in self.buttonsArray{
             let random = Int(arc4random_uniform(uint(self.words.count as Int!)))
@@ -135,35 +199,7 @@ class TestViewController: UIViewController, AVSpeechSynthesizerDelegate {
         }
         self.wordLabel.text = self.wordsList[random].word
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    @IBAction func closeTestButtonPressed(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
 
-    @IBAction func buttonPressed(sender: UIButton) {
-        
-        if sender.tag == self.random {
-            self.rightAnswer = self.rightAnswer + 1
-            self.answerStatusLabel.text = "Правильно"
-            self.answerResultView.backgroundColor = UIColor(red: 0.000, green: 0.678, blue: 0.322, alpha: 1.00)
-            self.answerStatusImageView.image = UIImage.init(named: "happy")
-        } else {
-            self.answerStatusLabel.text = "Неправильно"
-            self.answerResultView.backgroundColor = UIColor(red: 0.875, green: 0.000, blue: 0.000, alpha: 1.00)
-            self.answerStatusImageView.image = UIImage.init(named: "sad")
-            try! self.realm.write({
-                self.wordsList[self.random].falseAnswerCount = self.wordsList[self.random].falseAnswerCount + 1
-            })
-        }
-        self.answerWordLabel.text = self.wordsList[self.random].word
-        self.answerTranslatedWordLabel.text = self.wordsList[self.random].translatedWord
-        self.showAnswerResult()
-        print("self right - \(self.rightAnswer)")
-    }
     
     func showResult(){
         try! self.realm.write({
@@ -179,46 +215,9 @@ class TestViewController: UIViewController, AVSpeechSynthesizerDelegate {
         self.progressView.totalBall = 20
         self.progressView.setValue(CGFloat(self.rightAnswer)*100/CGFloat(self.currentQuestion), animateWithDuration: 3)
     }
+    
     func showAnswerResult(){
         self.reusultView.hidden = false
         self.answerResultView.hidden = false
-    }
-    
-    @IBAction func continueButtonPressed(sender: AnyObject) {
-        self.answerResultView.hidden = true
-        if self.currentQuestion < 20 {
-            self.currentQuestion = self.currentQuestion + 1
-            self.resultLabel.text = "\(self.currentQuestion)/20"
-            self.reusultView.hidden = true
-            self.wordsList = []
-            self.fillWordsList()
-        } else {
-            self.showResult()
-        }
-    }
-    
-    @IBAction func slowSpeechTextButtonPressed(sender: AnyObject) {
-        if self.synthesizer.speaking {
-            return
-        }
-        let speech = AVSpeechSynthesizer.init()
-        speech.delegate = self
-        let textToSpeech = AVSpeechUtterance.init(string: self.wordLabel.text)
-        textToSpeech.voice = self.voice
-        textToSpeech.rate = 0.2
-        speech.speakUtterance(textToSpeech)
-    }
-    
-    @IBAction func speechTextButtonPressed(sender: AnyObject) {
-        if self.synthesizer.speaking {
-            return
-        }
-        let speech = AVSpeechSynthesizer.init()
-        speech.delegate = self
-        let textToSpeech = AVSpeechUtterance.init(string: self.wordLabel.text)
-        textToSpeech.voice = self.voice
-        textToSpeech.rate = 0.5
-        speech.speakUtterance(textToSpeech)
-
     }
 }

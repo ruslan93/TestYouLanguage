@@ -13,9 +13,15 @@ import IBAnimatable
 import AVFoundation;
 
 class LanguageListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MGSwipeTableCellDelegate {
+    
+    //MARK: - Properties
+    
     @IBOutlet weak var tableView: UITableView!
+    
     var realm: Realm? = nil
+    
     var laguagies: List<Language>? = nil
+    
     var user: User? {
         get {
             let users = self.realm!.objects(User).filter("ID == %@", NSUserDefaults.standardUserDefaults().valueForKey("ID")!)
@@ -27,6 +33,8 @@ class LanguageListViewController: UIViewController, UITableViewDataSource, UITab
         }
     }
     
+    //MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.realm = try! Realm()
@@ -37,7 +45,7 @@ class LanguageListViewController: UIViewController, UITableViewDataSource, UITab
         if (NSUserDefaults.standardUserDefaults().valueForKey("login") == nil) {
             self.performSegueWithIdentifier("loginSegue", sender: self)
         } else {
-            self.update()
+            self.prepareView()
         }
     }
     
@@ -67,9 +75,14 @@ class LanguageListViewController: UIViewController, UITableViewDataSource, UITab
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("LanguageTableViewCell") as! LanguageTableViewCell!
+                return cell
+    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = cell as! LanguageTableViewCell
         let language = self.user!.languages[indexPath.row]
         cell.languageNameLabel.text = language.name
-        cell.languageImageView.image = UIImage.init(named: "\(indexPath.row + 1)")
+        cell.languageImageView.image = UIImage.init(named: "\(language.name)")
         cell.wordsCountLabel.text = "\(language.words.count)"
         if language.results.isEmpty {
             cell.lastResultLabel.text = "-"
@@ -83,16 +96,15 @@ class LanguageListViewController: UIViewController, UITableViewDataSource, UITab
             cell.lastResultLabel.text = "\(language.results.last!.percent)%"
         }
         cell.backgroundColor = UIColor.clearColor()
-        return cell
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 100.0
     }
     
-    // MARK: - UpdadeLanguagies
+    // MARK: - Methods
     
-    func update() {
+    func prepareView() {
         let users = self.realm?.objects(User).filter("ID == %@", NSUserDefaults.standardUserDefaults().valueForKey("ID")!)
         if users != nil && !users!.isEmpty {
             self.laguagies = users![0].languages
@@ -101,6 +113,7 @@ class LanguageListViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     // MARK: - Navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier! == "themesSegue"{
             let selectedIndexPath = self.tableView.indexPathForSelectedRow

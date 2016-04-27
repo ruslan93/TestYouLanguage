@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:TestYourLanguage.xcodeproj">
+      location = "group:/Users/macos/Documents/Projects/MyProjects/TestYourLanguage/Language Test.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

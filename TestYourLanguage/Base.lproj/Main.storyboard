@@ -10,7 +10,7 @@
         <!--Ваши языки-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LanguageListViewController" customModule="TestYourLanguage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LanguageListViewController" customModule="Language_Test" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LanguageTableViewCell" rowHeight="100" id="1jA-QH-eD0" customClass="LanguageTableViewCell" customModule="TestYourLanguage" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LanguageTableViewCell" rowHeight="100" id="1jA-QH-eD0" customClass="LanguageTableViewCell" customModule="Language_Test" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1jA-QH-eD0" id="58b-N6-LPK">
@@ -153,7 +153,7 @@
         <!--Login View Controller-->
         <scene sceneID="ruS-K3-M4t">
             <objects>
-                <viewController id="6BH-Ug-5G8" customClass="LoginViewController" customModule="TestYourLanguage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6BH-Ug-5G8" customClass="LoginViewController" customModule="Language_Test" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Rbf-pk-YQx"/>
                         <viewControllerLayoutGuide type="bottom" id="nFd-X4-nXc"/>
@@ -416,7 +416,7 @@
         <!--Настройки-->
         <scene sceneID="BnK-xf-0YO">
             <objects>
-                <viewController id="Cap-Kk-Cgh" customClass="SettingsViewController" customModule="TestYourLanguage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Cap-Kk-Cgh" customClass="SettingsViewController" customModule="Language_Test" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="llU-3h-E7O"/>
                         <viewControllerLayoutGuide type="bottom" id="Y9P-u7-Q90"/>
@@ -786,7 +786,7 @@
         <!--Сменить фото-->
         <scene sceneID="K1x-8l-Kca">
             <objects>
-                <viewController id="1XF-lk-sOP" customClass="ProfilePhotoViewController" customModule="TestYourLanguage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="1XF-lk-sOP" customClass="ProfilePhotoViewController" customModule="Language_Test" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h3o-yZ-H05"/>
                         <viewControllerLayoutGuide type="bottom" id="aKg-sD-S4p"/>
@@ -979,7 +979,7 @@
         <!--Результаты-->
         <scene sceneID="zdO-88-2xv">
             <objects>
-                <viewController id="os9-8B-akW" customClass="ResultListViewController" customModule="TestYourLanguage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="os9-8B-akW" customClass="ResultListViewController" customModule="Language_Test" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JXS-qh-qLl"/>
                         <viewControllerLayoutGuide type="bottom" id="J0v-b4-4Ed"/>
@@ -995,7 +995,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ResultTableViewCell" rowHeight="80" id="gy6-84-kES" customClass="ResultTableViewCell" customModule="TestYourLanguage" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ResultTableViewCell" rowHeight="80" id="gy6-84-kES" customClass="ResultTableViewCell" customModule="Language_Test" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gy6-84-kES" id="BjU-Vb-Ucf">
@@ -1095,14 +1095,14 @@
                                             <outlet property="rightAnswerLabel" destination="Wbj-zr-9Bm" id="8BM-d5-6sd"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ResultHeaderTableViewCell" rowHeight="100" id="g7b-K8-AS8" customClass="ResultHeaderTableViewCell" customModule="TestYourLanguage" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ResultHeaderTableViewCell" rowHeight="100" id="g7b-K8-AS8" customClass="ResultHeaderTableViewCell" customModule="Language_Test" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="108" width="600" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g7b-K8-AS8" id="K2n-uA-JYw">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="K9z-eK-okH">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K9z-eK-okH">
                                                     <rect key="frame" x="172" y="25" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="M32-j5-4X0"/>
@@ -1178,10 +1178,10 @@
             </objects>
             <point key="canvasLocation" x="1240" y="1353"/>
         </scene>
-        <!--Темы-->
+        <!--Список тем-->
         <scene sceneID="512-Es-BFa">
             <objects>
-                <viewController id="ZBt-Lt-HqK" customClass="ThemesViewController" customModule="TestYourLanguage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ZBt-Lt-HqK" customClass="ThemesViewController" customModule="Language_Test" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7XC-U0-XMo"/>
                         <viewControllerLayoutGuide type="bottom" id="fL7-L3-ELM"/>
@@ -1198,7 +1198,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ThemeTableViewCell" rowHeight="50" id="gBa-bn-6k0" customClass="ThemeTableViewCell" customModule="TestYourLanguage" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ThemeTableViewCell" rowHeight="50" id="gBa-bn-6k0" customClass="ThemeTableViewCell" customModule="Language_Test" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gBa-bn-6k0" id="IXi-T1-Cu9">
@@ -1269,7 +1269,7 @@
                             <constraint firstItem="nrH-k1-PIf" firstAttribute="centerY" secondItem="ST2-bS-qZk" secondAttribute="centerY" id="yXk-P2-IVT"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Темы" id="KYZ-Zo-Xay">
+                    <navigationItem key="navigationItem" title="Список тем" id="KYZ-Zo-Xay">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Cxd-dr-u25">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -1289,7 +1289,7 @@
         <!--Test View Controller-->
         <scene sceneID="GOV-7v-KcC">
             <objects>
-                <viewController storyboardIdentifier="TestViewController" id="vZE-23-9mu" customClass="TestViewController" customModule="TestYourLanguage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TestViewController" id="vZE-23-9mu" customClass="TestViewController" customModule="Language_Test" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dQW-Hb-ul9"/>
                         <viewControllerLayoutGuide type="bottom" id="nqX-hK-ES8"/>
@@ -1817,7 +1817,7 @@
         <!--Слова-->
         <scene sceneID="RLK-mT-Bjk">
             <objects>
-                <viewController id="d9T-mA-VJ7" customClass="WordListViewController" customModule="TestYourLanguage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="d9T-mA-VJ7" customClass="WordListViewController" customModule="Language_Test" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ryA-Xh-DtA"/>
                         <viewControllerLayoutGuide type="bottom" id="IW7-fW-YrP"/>
@@ -1833,7 +1833,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WordTableViewCell" rowHeight="50" id="0ME-tD-ZAq" customClass="WordTableViewCell" customModule="TestYourLanguage" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WordTableViewCell" rowHeight="50" id="0ME-tD-ZAq" customClass="WordTableViewCell" customModule="Language_Test" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0ME-tD-ZAq" id="H3n-xc-EXm">
@@ -1939,7 +1939,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1" width="146" height="93"/>
         <image name="Background-Login" width="744" height="1392"/>
         <image name="Logo" width="159" height="141"/>
         <image name="PasswordIcon" width="33" height="32"/>
