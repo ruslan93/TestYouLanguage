@@ -18,15 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let config = Realm.Configuration(
             // Установим новую версию схемы. Это число должно быть больше предыдущей версии
             // (0, если вы никогда не устанавливали номер версии).
-            schemaVersion: 4,
+            schemaVersion: 5,
             // Определим блок, который будет вызван автоматически, при открытии Realm,
             // с версией схемы меньше чем определна выше
             migrationBlock: { migration, oldSchemaVersion in
                 // Мы еще не проводили миграций, поэтому oldSchemaVersion == 0
-                migration.enumerate(Language.className()) { oldObject, newObject in
+                migration.enumerate(Theme.className()) { oldObject, newObject in
                     // Добавим поле 'fullName' только к файлам Realm с версией схемы 0 или 1
-                    if oldSchemaVersion < 4 {
-                        newObject!["themes"] = List<Theme>()
+                    if oldSchemaVersion < 5 {
+                        newObject!["name"] = ""
                     }
                 }
         })

@@ -11,9 +11,27 @@ import RealmSwift
 import MGSwipeTableCell
 
 class WordListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MGSwipeTableCellDelegate {
-    var words: List<Word>?
+    
+    var language: Language!
+    
+    var theme: Theme!
+    
+    var isTheme = false
+    
+    var words: Results<Word> {
+        get {
+            if !self.isTheme {
+                return self.language.words.sorted("word", ascending: true)
+            } else {
+                return self.theme.words.sorted("word", ascending: true)
+            }
+        }
+    }
+    
     @IBOutlet weak var tableView: UITableView!
+    
     var realm: Realm? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.realm = try! Realm()
@@ -27,12 +45,12 @@ class WordListViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: - UITableViewDelegate
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.words!.count
+        return self.words.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("WordTableViewCell") as! WordTableViewCell!
-        let word = self.words![indexPath.row]
+        let word = self.words[indexPath.row]
         cell.wordLabel.text = word.word
         cell.translatedWordLabel.text = word.translatedWord
         cell.wordNumber.text = "\(indexPath.row + 1)"
@@ -98,19 +116,22 @@ class WordListViewController: UIViewController, UITableViewDataSource, UITableVi
         let newWord = Word()
         newWord.word = word
         newWord.translatedWord = translatedWord
-        if self.words!.isEmpty {
+        if self.words.isEmpty {
             newWord.ID = 0
         } else {
-            newWord.ID = (self.words!.max("ID") as Int!)+1
+            newWord.ID = (self.words.max("ID") as Int!)+1
         }
         try! self.realm!.write({
-            self.words?.append(newWord)
-            self.tableView.insertRowsAtIndexPaths([NSIndexPath.init(forRow: self.words!.count - 1, inSection: 0)], withRowAnimation: .Right)
+            self.language.words.append(newWord)
+            if self.isTheme {
+                self.theme.words.append(newWord)
+            }
+            self.tableView.reloadData()
         })
     }
 
     func deleteWord(indexPath: NSIndexPath){
-        let selectedWord = self.words![indexPath.row]
+        let selectedWord = self.words[indexPath.row]
         try! self.realm!.write({
             realm?.delete(selectedWord)
             self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Left)
@@ -118,7 +139,7 @@ class WordListViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func editWord(indexPath: NSIndexPath){
-        let selectedWord = self.words![indexPath.row]
+        let selectedWord = self.words[indexPath.row]
         let alert = UIAlertController.init(title: NSLocalizedString("editWord", comment: ""), message:nil, preferredStyle: .Alert)
         alert.addTextFieldWithConfigurationHandler { (wordTextField) in
             wordTextField.placeholder = NSLocalizedString("word", comment: "")

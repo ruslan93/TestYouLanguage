@@ -15,7 +15,7 @@
 		223175C81CCE44E600E79795 /* UIImage+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223175C71CCE44E600E79795 /* UIImage+Crop.swift */; };
 		224A33C81CCE95AE008444E9 /* MBCircularProgressBarLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 224A33C51CCE95AE008444E9 /* MBCircularProgressBarLayer.m */; };
 		224A33C91CCE95AE008444E9 /* MBCircularProgressBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 224A33C71CCE95AE008444E9 /* MBCircularProgressBarView.m */; };
-		224A33CD1CCEA5B8008444E9 /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A33CC1CCEA5B8008444E9 /* TestTableViewCell.swift */; };
+		2254C2C01CD08F340014A822 /* ThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2254C2BF1CD08F340014A822 /* ThemesViewController.swift */; };
 		225D2F101CC7AD5C00AE2337 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225D2F0F1CC7AD5C00AE2337 /* AppDelegate.swift */; };
 		225D2F151CC7AD5C00AE2337 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 225D2F131CC7AD5C00AE2337 /* Main.storyboard */; };
 		225D2F171CC7AD5C00AE2337 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 225D2F161CC7AD5C00AE2337 /* Assets.xcassets */; };
@@ -27,10 +27,10 @@
 		225E447B1CC9371700227EF5 /* LanguageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225E447A1CC9371700227EF5 /* LanguageTableViewCell.swift */; };
 		225E447D1CC94AB300227EF5 /* WordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225E447C1CC94AB300227EF5 /* WordTableViewCell.swift */; };
 		225E447F1CC94B0D00227EF5 /* WordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225E447E1CC94B0D00227EF5 /* WordListViewController.swift */; };
-		2270EDA91CCD1A97009A3776 /* TestSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2270EDA81CCD1A97009A3776 /* TestSettingViewController.swift */; };
 		2270EDAB1CCD20DE009A3776 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2270EDAA1CCD20DE009A3776 /* TestViewController.swift */; };
 		2273BFCA1CCE3096002D0BD1 /* ProfilePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2273BFC91CCE3096002D0BD1 /* ProfilePhotoViewController.swift */; };
 		227D28791CCF7F3600229E55 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 227D287B1CCF7F3600229E55 /* Localizable.strings */; };
+		227DD7901CD0B19300575FAB /* ThemeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227DD78F1CD0B19300575FAB /* ThemeTableViewCell.swift */; };
 		D58306F9F3F543C537102D6C /* Pods_TestYourLanguage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2574FC851B5242C574BA291F /* Pods_TestYourLanguage.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,7 +56,7 @@
 		224A33C51CCE95AE008444E9 /* MBCircularProgressBarLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBCircularProgressBarLayer.m; sourceTree = "<group>"; };
 		224A33C61CCE95AE008444E9 /* MBCircularProgressBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCircularProgressBarView.h; sourceTree = "<group>"; };
 		224A33C71CCE95AE008444E9 /* MBCircularProgressBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBCircularProgressBarView.m; sourceTree = "<group>"; };
-		224A33CC1CCEA5B8008444E9 /* TestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
+		2254C2BF1CD08F340014A822 /* ThemesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemesViewController.swift; sourceTree = "<group>"; };
 		225D2F0C1CC7AD5C00AE2337 /* TestYourLanguage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestYourLanguage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		225D2F0F1CC7AD5C00AE2337 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		225D2F141CC7AD5C00AE2337 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -72,12 +72,12 @@
 		225E447A1CC9371700227EF5 /* LanguageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageTableViewCell.swift; sourceTree = "<group>"; };
 		225E447C1CC94AB300227EF5 /* WordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTableViewCell.swift; sourceTree = "<group>"; };
 		225E447E1CC94B0D00227EF5 /* WordListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordListViewController.swift; sourceTree = "<group>"; };
-		2270EDA81CCD1A97009A3776 /* TestSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSettingViewController.swift; sourceTree = "<group>"; };
 		2270EDAA1CCD20DE009A3776 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		2273BFC91CCE3096002D0BD1 /* ProfilePhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePhotoViewController.swift; sourceTree = "<group>"; };
 		227D286F1CCF7BEB00229E55 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
 		227D287A1CCF7F3600229E55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		227D287C1CCF7F3A00229E55 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		227DD78F1CD0B19300575FAB /* ThemeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeTableViewCell.swift; sourceTree = "<group>"; };
 		2574FC851B5242C574BA291F /* Pods_TestYourLanguage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestYourLanguage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AB44E7321D7201D4C631E43 /* Pods-TestYourLanguage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestYourLanguage.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestYourLanguage/Pods-TestYourLanguage.release.xcconfig"; sourceTree = "<group>"; };
 		C1A9471736842CC7F1286622 /* Pods-TestYourLanguage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestYourLanguage.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestYourLanguage/Pods-TestYourLanguage.debug.xcconfig"; sourceTree = "<group>"; };
@@ -119,9 +119,9 @@
 				225E447E1CC94B0D00227EF5 /* WordListViewController.swift */,
 				220E174F1CCA88BD006285F9 /* SettingsViewController.swift */,
 				220E17511CCA9512006285F9 /* ResultListViewController.swift */,
-				2270EDA81CCD1A97009A3776 /* TestSettingViewController.swift */,
 				2270EDAA1CCD20DE009A3776 /* TestViewController.swift */,
 				2273BFC91CCE3096002D0BD1 /* ProfilePhotoViewController.swift */,
+				2254C2BF1CD08F340014A822 /* ThemesViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -195,7 +195,7 @@
 				225E447C1CC94AB300227EF5 /* WordTableViewCell.swift */,
 				220E17531CCA9703006285F9 /* ResultTableViewCell.swift */,
 				220E17551CCAA04C006285F9 /* ResultHeaderTableViewCell.swift */,
-				224A33CC1CCEA5B8008444E9 /* TestTableViewCell.swift */,
+				227DD78F1CD0B19300575FAB /* ThemeTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -386,11 +386,11 @@
 				225E447F1CC94B0D00227EF5 /* WordListViewController.swift in Sources */,
 				225D2F101CC7AD5C00AE2337 /* AppDelegate.swift in Sources */,
 				225E447D1CC94AB300227EF5 /* WordTableViewCell.swift in Sources */,
-				224A33CD1CCEA5B8008444E9 /* TestTableViewCell.swift in Sources */,
 				225E44741CC7C14600227EF5 /* User.swift in Sources */,
 				220E17541CCA9703006285F9 /* ResultTableViewCell.swift in Sources */,
-				2270EDA91CCD1A97009A3776 /* TestSettingViewController.swift in Sources */,
 				225E447B1CC9371700227EF5 /* LanguageTableViewCell.swift in Sources */,
+				2254C2C01CD08F340014A822 /* ThemesViewController.swift in Sources */,
+				227DD7901CD0B19300575FAB /* ThemeTableViewCell.swift in Sources */,
 				220E17561CCAA04C006285F9 /* ResultHeaderTableViewCell.swift in Sources */,
 				223175C81CCE44E600E79795 /* UIImage+Crop.swift in Sources */,
 				225E44761CC7D53E00227EF5 /* LanguageListViewController.swift in Sources */,

@@ -36,6 +36,7 @@ class Word: Object {
 
 class Theme: Object {
     dynamic var owner: Language!
+    dynamic var name = ""
     let words = List<Word>()
 }
 

@@ -102,11 +102,11 @@ class LanguageListViewController: UIViewController, UITableViewDataSource, UITab
     
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier! == "wordsSegue"{
+        if segue.identifier! == "themesSegue"{
             let selectedIndexPath = self.tableView.indexPathForSelectedRow
             if selectedIndexPath != nil {
-                let newController = segue.destinationViewController as! WordListViewController
-                newController.words = self.laguagies![selectedIndexPath!.row].words
+                let newController = segue.destinationViewController as! ThemesViewController
+                newController.language = self.laguagies![selectedIndexPath!.row]
             }
         }
     }

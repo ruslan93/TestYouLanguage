@@ -15,11 +15,30 @@ import AVFoundation;
 class TestViewController: UIViewController, AVSpeechSynthesizerDelegate {
 
     var realm: Realm = try! Realm()
+    
     var random = 0
+    
     var language: Language!
+    
     var currentQuestion = 1
+    
     var rightAnswer = 0
+    
     var wordsList: [Word] = []
+    
+    var words: List<Word> {
+        get {
+            if self.isTheme {
+                return self.theme.words
+            } else {
+                return self.language.words
+            }
+        }
+    }
+    
+    var isTheme = false
+    
+    var theme: Theme!
     
     var synthesizer = AVSpeechSynthesizer.init()
     
@@ -77,8 +96,8 @@ class TestViewController: UIViewController, AVSpeechSynthesizerDelegate {
     
     func fillWordsList(){
         for _ in self.buttonsArray{
-            let random = Int(arc4random_uniform(uint(self.language.words.count as Int!)))
-            let word = self.language.words[random]
+            let random = Int(arc4random_uniform(uint(self.words.count as Int!)))
+            let word = self.words[random]
             if self.wordsList.isEmpty {
                 self.wordsList.insert(word, atIndex: 0)
             } else {
@@ -143,6 +162,7 @@ class TestViewController: UIViewController, AVSpeechSynthesizerDelegate {
         self.answerWordLabel.text = self.wordsList[self.random].word
         self.answerTranslatedWordLabel.text = self.wordsList[self.random].translatedWord
         self.showAnswerResult()
+        print("self right - \(self.rightAnswer)")
     }
     
     func showResult(){
@@ -152,6 +172,7 @@ class TestViewController: UIViewController, AVSpeechSynthesizerDelegate {
             result.rightQuestion = self.rightAnswer
             result.totalQuestion = self.currentQuestion
             result.percent = (self.rightAnswer * 100) / self.currentQuestion
+            print("right - \(self.rightAnswer) total - \(self.currentQuestion)")
             self.language.results.append(result)
         })
         self.testResultView.hidden = false
@@ -159,8 +180,6 @@ class TestViewController: UIViewController, AVSpeechSynthesizerDelegate {
         self.progressView.setValue(CGFloat(self.rightAnswer)*100/CGFloat(self.currentQuestion), animateWithDuration: 3)
     }
     func showAnswerResult(){
-        self.currentQuestion = self.currentQuestion + 1
-        self.resultLabel.text = "\(self.currentQuestion)/20"
         self.reusultView.hidden = false
         self.answerResultView.hidden = false
     }
@@ -168,6 +187,8 @@ class TestViewController: UIViewController, AVSpeechSynthesizerDelegate {
     @IBAction func continueButtonPressed(sender: AnyObject) {
         self.answerResultView.hidden = true
         if self.currentQuestion < 20 {
+            self.currentQuestion = self.currentQuestion + 1
+            self.resultLabel.text = "\(self.currentQuestion)/20"
             self.reusultView.hidden = true
             self.wordsList = []
             self.fillWordsList()

@@ -1,18 +1,20 @@
 //
-//  TestTableViewCell.swift
+//  ThemeTableViewCell.swift
 //  TestYourLanguage
 //
-//  Created by Ruslan on 4/25/16.
+//  Created by Ruslan on 4/27/16.
 //  Copyright © 2016 Ruslan Palapa. All rights reserved.
 //
 
 import UIKit
+import MGSwipeTableCell
 
-class TestTableViewCell: UITableViewCell {
+class ThemeTableViewCell: MGSwipeTableCell {
+
+    @IBOutlet weak var themeNameLabel: UILabel!
     
-    @IBOutlet weak var flagImageView: UIImageView!
-    @IBOutlet weak var languageLabel: UILabel!
-
+    @IBOutlet weak var startTestButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
