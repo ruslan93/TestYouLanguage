@@ -63,13 +63,15 @@ class SettingsViewController: UIViewController {
                 wordNumber += language.words.count
             }
             self.wordsNumberLabel.text = "\(wordNumber)"
-            let averagePercent = self.realm!.objects(Result).average("percent") as Int!
-            if averagePercent >= 50 {
-                self.lastResultLabel.textColor = UIColor.greenColor()
-            } else {
-                self.lastResultLabel.textColor = UIColor.redColor()
+            
+            if let averagePercent = self.realm!.objects(Result).average("percent") as Int?{
+                if averagePercent >= 50 {
+                    self.lastResultLabel.textColor = UIColor.greenColor()
+                } else {
+                    self.lastResultLabel.textColor = UIColor.redColor()
+                }
+                self.lastResultLabel.text = "\(averagePercent)%"
             }
-            self.lastResultLabel.text = "\(averagePercent)%"
             self.userNameLabel.text = self.user!.login
             if !(self.user?.profileImage.isEmpty)! {
                 let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String

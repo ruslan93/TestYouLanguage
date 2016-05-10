@@ -29,6 +29,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         newObject!["name"] = ""
                     }
                 }
+                migration.enumerate(Language.className()) { oldObject, newObject in
+                    // Добавим поле 'fullName' только к файлам Realm с версией схемы 0 или 1
+                    if oldSchemaVersion < 5 {
+                        newObject!["themes"] = List()
+                    }
+                }
         })
         // Установить конфигурацию для Realm по умолчанию
         Realm.Configuration.defaultConfiguration = config
