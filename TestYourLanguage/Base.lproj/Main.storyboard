@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lVI-qG-WaD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lVI-qG-WaD">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -669,7 +669,7 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="animationType" value="FadeIn"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="changeButtonPressed:" destination="Cap-Kk-Cgh" eventType="touchUpInside" id="dCE-n3-c3l"/>
+                                                    <action selector="changePasswordButtonPressed:" destination="Cap-Kk-Cgh" eventType="touchUpInside" id="eZX-Me-GsO"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -743,11 +743,23 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JtX-7m-6CY">
+                                        <rect key="frame" x="250" y="244" width="100" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="SyL-pi-81F"/>
+                                            <constraint firstAttribute="height" constant="40" id="eed-OX-BBC"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="changeNameButtonPressed:" destination="Cap-Kk-Cgh" eventType="touchUpInside" id="Wle-uW-pot"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="JtX-7m-6CY" firstAttribute="centerY" secondItem="OPM-k0-VNw" secondAttribute="centerY" id="4WD-Wk-2nB"/>
                                     <constraint firstItem="OPM-k0-VNw" firstAttribute="centerX" secondItem="VcO-VZ-nRw" secondAttribute="centerX" id="9Me-YH-5j6"/>
                                     <constraint firstItem="OPM-k0-VNw" firstAttribute="width" secondItem="VcO-VZ-nRw" secondAttribute="width" id="QaZ-bX-See"/>
+                                    <constraint firstItem="JtX-7m-6CY" firstAttribute="centerX" secondItem="OPM-k0-VNw" secondAttribute="centerX" id="QdM-C3-RLd"/>
                                     <constraint firstItem="OPM-k0-VNw" firstAttribute="top" secondItem="VcO-VZ-nRw" secondAttribute="bottom" constant="18" id="VcW-Sw-Reb"/>
                                     <constraint firstItem="PQh-RW-Fuk" firstAttribute="centerX" secondItem="wJB-LQ-uCI" secondAttribute="centerX" id="ela-BT-SjE"/>
                                     <constraint firstItem="PQh-RW-Fuk" firstAttribute="width" secondItem="wJB-LQ-uCI" secondAttribute="width" id="hVe-Kv-R4K"/>
@@ -1145,21 +1157,39 @@
                                     <outlet property="delegate" destination="os9-8B-akW" id="IQ1-RD-Lfm"/>
                                 </connections>
                             </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="У Вас пока еще нет результатов!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4hi-p0-sTy">
+                                <rect key="frame" x="150" y="289" width="300" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="J0v-b4-4Ed" firstAttribute="top" secondItem="Z0S-iH-aa7" secondAttribute="bottom" id="9hr-c9-rec"/>
                             <constraint firstItem="Z0S-iH-aa7" firstAttribute="top" secondItem="JXS-qh-qLl" secondAttribute="bottom" id="G2a-ZU-zCY"/>
+                            <constraint firstItem="4hi-p0-sTy" firstAttribute="centerX" secondItem="0VD-yt-LLx" secondAttribute="centerX" id="QJT-a5-tbx"/>
                             <constraint firstAttribute="trailing" secondItem="Z0S-iH-aa7" secondAttribute="trailing" id="TPv-tq-dqT"/>
+                            <constraint firstItem="4hi-p0-sTy" firstAttribute="width" secondItem="0VD-yt-LLx" secondAttribute="width" multiplier="0.5" id="UEg-xO-PZg"/>
                             <constraint firstItem="EO3-bj-9hl" firstAttribute="centerY" secondItem="0VD-yt-LLx" secondAttribute="centerY" id="fzV-RF-nZW"/>
                             <constraint firstItem="EO3-bj-9hl" firstAttribute="width" secondItem="0VD-yt-LLx" secondAttribute="width" id="mA8-jH-RRF"/>
+                            <constraint firstItem="4hi-p0-sTy" firstAttribute="centerY" secondItem="0VD-yt-LLx" secondAttribute="centerY" id="uBo-K0-x6X"/>
                             <constraint firstItem="EO3-bj-9hl" firstAttribute="height" secondItem="0VD-yt-LLx" secondAttribute="height" id="wQ0-Bu-rUn"/>
                             <constraint firstItem="Z0S-iH-aa7" firstAttribute="leading" secondItem="0VD-yt-LLx" secondAttribute="leading" id="xsV-NL-afD"/>
                             <constraint firstItem="EO3-bj-9hl" firstAttribute="centerX" secondItem="0VD-yt-LLx" secondAttribute="centerX" id="ymM-Ik-Upp"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Результаты" id="JSj-EU-xPL"/>
+                    <navigationItem key="navigationItem" title="Результаты" id="JSj-EU-xPL">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="EV3-hK-x7Z">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="clearResultsBarButtonPressed:" destination="os9-8B-akW" id="dGn-LJ-Su0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="deleteResultsBarButton" destination="EV3-hK-x7Z" id="eZf-JT-q0C"/>
+                        <outlet property="noneResultsLabel" destination="4hi-p0-sTy" id="MKc-Y6-htX"/>
                         <outlet property="tableView" destination="Z0S-iH-aa7" id="dWs-Mf-Rcs"/>
                     </connections>
                 </viewController>
@@ -1203,7 +1233,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="119" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KCF-OH-6kp">
-                                <rect key="frame" x="0.0" y="64" width="600" height="437"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -1268,7 +1298,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fL7-L3-ELM" firstAttribute="top" secondItem="KCF-OH-6kp" secondAttribute="bottom" constant="50" id="1eT-n4-SC1"/>
+                            <constraint firstItem="fL7-L3-ELM" firstAttribute="top" secondItem="KCF-OH-6kp" secondAttribute="bottom" id="1eT-n4-SC1"/>
                             <constraint firstItem="KCF-OH-6kp" firstAttribute="top" secondItem="7XC-U0-XMo" secondAttribute="bottom" id="26c-kI-7t0"/>
                             <constraint firstItem="nrH-k1-PIf" firstAttribute="centerX" secondItem="ST2-bS-qZk" secondAttribute="centerX" id="62S-7v-2PA"/>
                             <constraint firstItem="nrH-k1-PIf" firstAttribute="width" secondItem="ST2-bS-qZk" secondAttribute="width" id="Dhr-ZT-fiQ"/>
@@ -1955,7 +1985,7 @@
         <image name="cancel" width="300" height="300"/>
         <image name="history-icon" width="25" height="25"/>
         <image name="play" width="32" height="32"/>
-        <image name="profile" width="100" height="100"/>
+        <image name="profile" width="1290" height="1290"/>
         <image name="sad" width="48" height="48"/>
         <image name="settings-icon" width="25" height="25"/>
         <image name="speaker" width="32" height="32"/>
@@ -1963,6 +1993,6 @@
         <image name="turtle" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vUf-93-0yh"/>
+        <segue reference="aPc-m3-fKV"/>
     </inferredMetricsTieBreakers>
 </document>

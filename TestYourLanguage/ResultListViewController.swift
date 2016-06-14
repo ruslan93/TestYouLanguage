@@ -15,6 +15,10 @@ class ResultListViewController: UIViewController, UITableViewDataSource, UITable
 
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var noneResultsLabel: UILabel!
+
+    @IBOutlet weak var deleteResultsBarButton: UIBarButtonItem!
+    
     var realm: Realm? = nil
     
     var user: User? {
@@ -36,6 +40,9 @@ class ResultListViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         self.realm = try! Realm()
+        self.noneResultsLabel.text = NSLocalizedString("noneResultsLabel", comment: "")
+        self.deleteResultsBarButton.enabled = self.realm?.objects(Language).filter("results.@count > 0 && owner == %@", self.user!).count > 0
+        self.noneResultsLabel.hidden = self.realm?.objects(Language).filter("results.@count > 0 && owner == %@", self.user!).count > 0
         // Do any additional setup after loading the view.
     }
     
@@ -70,7 +77,11 @@ class ResultListViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         let cell = cell as! ResultTableViewCell
         let result = (self.realm?.objects(Language).filter("results.@count > 0 && owner == %@", self.user!))![indexPath.section].results[indexPath.row]
-        cell.dateLabel.text = "\(result.date)"
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = .ShortStyle
+        formatter.timeStyle = .MediumStyle
+        let dateString = formatter.stringFromDate(result.date)
+        cell.dateLabel.text = "\(dateString)"
         cell.resultLabel.text = "\(result.percent)%"
         cell.rightAnswerLabel.text = "\(result.rightQuestion)/\(result.totalQuestion)"
         if result.percent >= 50{
@@ -96,5 +107,27 @@ class ResultListViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 60.0
+    }
+    @IBAction func clearResultsBarButtonPressed(sender: AnyObject) {
+        let alert = UIAlertController.init(title: NSLocalizedString("deleteResultsTitle", comment: ""), message: nil, preferredStyle: .Alert)
+        let deleteAction = UIAlertAction.init(title: NSLocalizedString("delete", comment: ""), style: .Default){ (action:UIAlertAction!) -> Void in
+          self.deleteAllResults()
+        }
+        let cancelAction = UIAlertAction.init(title: NSLocalizedString("cancel", comment: ""), style: .Cancel, handler: nil)
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func deleteAllResults(){
+        let results = realm!.objects(Result)
+        for result in results {
+            try! self.realm!.write({
+                self.realm?.delete(result)
+            })
+        }
+        self.tableView.reloadData()
+        self.noneResultsLabel.hidden = self.realm?.objects(Language).filter("results.@count > 0 && owner == %@", self.user!).count > 0
+        self.deleteResultsBarButton.enabled = self.realm?.objects(Language).filter("results.@count > 0 && owner == %@", self.user!).count > 0
     }
 }

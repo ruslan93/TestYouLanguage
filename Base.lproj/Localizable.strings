@@ -9,6 +9,7 @@
 "emptyFieldsMessage" = "Не заполнены все поля";
 "loginExistMessage" = "Пользователь с таким логином уже существует";
 "incorrrectLoginDataMessage" = "Неправильный логин или пароль";
+"incorrrectPasswordMessage" = "Неправильный пароль";
 "cancel" = "Отменить";
 "add" = "Добавить";
 "edit" = "Изменить";
@@ -21,3 +22,10 @@
 "addNewWordTitle" = "Добавить новое слово";
 "addNewWordDescription" = "Введите слово и его перевод";
 "addNewThemeTitle" = "Добавить новую тему";
+"deleteResultsTitle" = "Удалить результаты";
+"noneResultsLabel" = "У Вас пока еще нет результатов!";
+"changePasswordTitle" = "Сменить пароль";
+"changeNameTitle" = "Сменить имя";
+"oldPassword" = "Старый пароль";
+"newPassword" = "Новый пароль";
+"newName" = "Новое имя";

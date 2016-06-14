@@ -43,6 +43,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		228182031CEB265200E1AED2 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		220E174F1CCA88BD006285F9 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		220E17511CCA9512006285F9 /* ResultListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultListViewController.swift; sourceTree = "<group>"; };
@@ -232,6 +245,7 @@
 				225D2F0A1CC7AD5C00AE2337 /* Resources */,
 				317C5992CD4D69B0A602E61E /* Embed Pods Frameworks */,
 				C3CD0C726E040C9AE33693A4 /* Copy Pods Resources */,
+				228182031CEB265200E1AED2 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -273,6 +287,11 @@
 					225D2F0B1CC7AD5C00AE2337 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = HY87Z5Z9U7;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 					225D2F1F1CC7AD5C00AE2337 = {
 						CreatedOnToolsVersion = 7.3;
